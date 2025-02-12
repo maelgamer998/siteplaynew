@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-    <img src="assets/img/logo.png" alt="Logo" class="animate__animated animate__bounce">
+    <img src="logo.png" alt="Logo" class="animate__animated animate__bounce">
     <div class="animate__animated animate__bounce">Animação com Animate.css</div>
 </body>
 </html>
