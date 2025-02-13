@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fontawesome.com/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>PlayNew - Store 💰</title>
+  <style>
+      .logo {
+          width: auto;
+          animation: pulse 7s infinite;
+      }
+      @keyframes pulse {
+          100% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.2);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+  </style>
+</head>
+
+<body>
+
+<header class="section">
+  <div class="logo container">
+    <a href="index.html">
+      <img src="logo.png">
+    </a>
+  </div>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-burger burger">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html" class="navbar-item"><i class="fas fa-home"></i> Início</a>
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a href="loja.html" class="navbar-link"><i class="fas fa-shopping-cart"></i> Loja</a>
+            <div class="navbar-dropdown">
+              <a href="loja.html#vip" class="navbar-item"><i class="fas fa-gem"></i> VIPs</a>
+              <a href="loja.html#unban" class="navbar-item"><i class="fas fa-ban"></i> Unban</a>
+              <hr class="navbar-divider">
+              <a href="termos.html" class="navbar-item">Informações importantes</a>
+            </div>
+          </div>
+          <a href="forum.html" class="navbar-item"><i class="fas fa-comments"></i> Fórum</a>
+          <a href="regras.html" class="navbar-item"><i class="fas fa-book"></i> Regras</a>
+          <a href="votar.html" class="navbar-item"><i class="fas fa-vote-yea"></i> Votar</a>
+          <a href="equipe.html" class="navbar-item"><i class="fas fa-users"></i> Equipe</a>
+          <a href="plugin.html" class="navbar-item"><i class="fa-solid fa-download"></i>  Plugin</a>
+          <a href="https://discord.com/invite/ehBxGJ9ta9?utm_source=Discord%20Widget&utm_medium=Connect" class="navbar-item"><i class="fab fa-discord"></i> Discord</a>
+        </div>
+
+        <div class="navbar-end">
+          <a id="ip" class="navbar-item">
+            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+            <textarea></textarea>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+
+<main class="section">
+  <div class="container">
+    <article id="vip" class="article">
+      <h1 class="article-title"><i class="fas fa-gem"></i> Adquira seu VIP!</h1>
+      <div class="article-content">
+        <ul class="produtos">
+          <li>
+            <img src="vip.png">
+            <h1>VIP</h1>
+            <h2>R$10090<small>/mês</small></h2>
+            <div class="buttons is-centered">
+              <a href="vip.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="vip.html" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img src="vip_plus.png">
+            <h1>VIP PLUS</h1>
+            <h2>R$20,00<small>/mês</small></h2>
+            <div class="buttons is-centered">
+              <a href="vip_plus.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="vip_plus.html" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img src="vip_pro.png">
+            <h1>VIP PRO</h1>
+            <h2>R$30,00<small>/mês</small></h2>
+            <div class="buttons is-centered">
+              <a href="vip_pro.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="vip_pro.html" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <article id="unban" class="article">
+      <h1 class="article-title"><i class="fas fa-ban"></i> Adquira seu desbanimento!</h1>
+      <div class="article-content">
+        <ul class="produtos">
+          <li>
+            <img src="unban.png">
+            <h1>Unban</h1>
+            <h2>R$15,00</h2>
+            <div class="buttons is-centered">
+              <a href="unban.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="unban.html" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="section">
+  <div class="container">
+    <article class="footer">
+      <span>&copy; PlayNew <script>document.write(new Date().getFullYear())</script>. Todos os direitos reservados.</span>
+      <a href="https://github.com/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
+    </article>
+  </div>
+</footer>    <script>
+        async function verificarServidor() {
+            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
+            const url = `https://api.mcsrvstat.us/2/${ip}`;
+
+            try {
+                const resposta = await fetch(url);
+                const dados = await resposta.json();
+
+                // Verifica se o servidor está online
+                if (dados.online) {
+                    document.getElementById("status").innerHTML =</i> " Servidor ONLINE";
+                    document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
+                    
+                    // Obtém o MOTD formatado corretamente
+                    const motd = dados.motd.clean.join(" "); // Converte array em texto
+                    document.getElementById("motd").innerHTML = motd;
+                } else {
+                    document.getElementById("status").innerHTML = "❌ Servidor OFFLINE";
+                    document.getElementById("players").innerHTML = "--";
+                    document.getElementById("motd").innerHTML = "--";
+                }
+            } catch (error) {
+                document.getElementById("status").innerHTML = "Erro ao obter informações";
+                document.getElementById("players").innerHTML = "--";
+                document.getElementById("motd").innerHTML = "--";
+                console.error("Erro:", error);
+            }
+        }
+
+        verificarServidor();
+        setInterval(verificarServidor, 10000); // Atualiza a cada 10 segundos
+    </script>
+
+    <script>
+        function copiarTexto() {
+            var inputTexto = document.getElementById("jogar.playnew.site:28254");
+            inputTexto.select();
+            inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+            document.execCommand("copy");
+
+            alert("Texto copiado: " + inputTexto.value);
+        }
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+
+</body>
+
+</html>
