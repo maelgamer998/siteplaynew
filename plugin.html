@@ -131,13 +131,55 @@
   <div class="container">
     <article class="footer">
       <span>&copy; PlayNew <script>document.write(new Date().getFullYear())</script>. Todos os direitos reservados.</span>
-      <a href="https://gitbub.io/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
+      <a href="https://github.com/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
     </article>
   </div>
-</footer>
+</footer>    <script>
+        async function verificarServidor() {
+            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
+            const url = `https://api.mcsrvstat.us/2/${ip}`;
 
+            try {
+                const resposta = await fetch(url);
+                const dados = await resposta.json();
+
+                // Verifica se o servidor está online
+                if (dados.online) {
+                    document.getElementById("status").innerHTML =</i> " Servidor ONLINE";
+                    document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
+                    
+                    // Obtém o MOTD formatado corretamente
+                    const motd = dados.motd.clean.join(" "); // Converte array em texto
+                    document.getElementById("motd").innerHTML = motd;
+                } else {
+                    document.getElementById("status").innerHTML = "❌ Servidor OFFLINE";
+                    document.getElementById("players").innerHTML = "--";
+                    document.getElementById("motd").innerHTML = "--";
+                }
+            } catch (error) {
+                document.getElementById("status").innerHTML = "Erro ao obter informações";
+                document.getElementById("players").innerHTML = "--";
+                document.getElementById("motd").innerHTML = "--";
+                console.error("Erro:", error);
+            }
+        }
+
+        verificarServidor();
+        setInterval(verificarServidor, 10000); // Atualiza a cada 10 segundos
+    </script>
+
+    <script>
+        function copiarTexto() {
+            var inputTexto = document.getElementById("jogar.playnew.site:28254");
+            inputTexto.select();
+            inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+            document.execCommand("copy");
+
+            alert("Texto copiado: " + inputTexto.value);
+        }
+    </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="assets/js/scripts.js"></script>
+<script src="scripts.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
 
 </body>
