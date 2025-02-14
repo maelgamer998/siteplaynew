@@ -154,14 +154,14 @@
 
                 // Verifica se o servidor está online
                 if (dados.online) {
-                    document.getElementById("status").innerHTML =</i> " ✔️ Servidor online";
+                    document.getElementById("status").innerHTML =</i> " ✔️ Servidor Online";
                     document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
                     
                     // Obtém o MOTD formatado corretamente
                     const motd = dados.motd.clean.join(" "); // Converte array em texto
                     document.getElementById("motd").innerHTML = motd;
                 } else {
-                    document.getElementById("status").innerHTML = "❌ Servidor OFFLINE";
+                    document.getElementById("status").innerHTML = "❌ Servidor Offline";
                     document.getElementById("players").innerHTML = "--";
                     document.getElementById("motd").innerHTML = "--";
                 }
