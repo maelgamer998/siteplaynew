@@ -114,7 +114,6 @@
           <h1 id="status" class="article-title"><i class="fas fa-sync is-spinning"></i> Carregando...</h1>
           <div class="article-content">
             <b><strong>Jogadores Online: </strong><span id="players"></span></b>
-            <p><strong>Motd: </strong><span id="motd"></span></p>
           </div>
         </article>
         <article class="article">
@@ -145,7 +144,7 @@
   </div>
 </footer>    <script>
         async function verificarServidor() {
-            const ip = "jogar.playnew.site"; // Altere para o IP do seu servidor
+            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
             const url = `https://api.mcsrvstat.us/2/${ip}`;
 
             try {
@@ -162,8 +161,8 @@
                     document.getElementById("motd").innerHTML = motd;
                 } else {
                     document.getElementById("status").innerHTML = "❌ Servidor Offline";
-                    document.getElementById("players").innerHTML = "--";
-                    document.getElementById("motd").innerHTML = "--";
+                    document.getElementById("players").innerHTML = "❌";
+                    document.getElementById("motd").innerHTML = "❌";
                 }
             } catch (error) {
                 document.getElementById("status").innerHTML = "Erro ao obter informações";
@@ -174,7 +173,7 @@
         }
 
         verificarServidor();
-        setInterval(verificarServidor, 5000); // Atualiza a cada 10 segundos
+        setInterval(verificarServidor, 100000); // Atualiza a cada 10 segundos
     </script>
 
     <script>
