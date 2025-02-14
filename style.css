@@ -284,15 +284,6 @@ a.is-muted:hover {
   .navbar-start > .navbar-link:first-child:hover {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Empilha os elementos em telas pequenas */
-  }
-  h1 {
-    font-size: 1.5rem; /* Reduz o tamanho da fonte em telas menores */
-  }
-}
   }
   
   .navbar-end > .navbar-item:last-child:hover,
