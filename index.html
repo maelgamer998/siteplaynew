@@ -113,7 +113,7 @@
         <article class="article">
           <h1 id="status" class="article-title"><i class="fas fa-sync is-spinning"></i> Carregando...</h1>
           <div class="article-content">
-            <b><strong>Jogadores Online: </strong><span id="players"></span></b>
+            <b><strong>Jogadores Online: </strong><span id="playersOnline"></span></b>
           </div>
         </article>
         <article class="article">
@@ -155,6 +155,7 @@
                 if (dados.online) {
                     document.getElementById("status").innerHTML =</i> " ✔️ Servidor Online";
                     document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
+                    document.getElementById("playersOnline").textContent = data.players.online + " jogadores online";
                     
                     // Obtém o MOTD formatado corretamente
                     const motd = dados.motd.clean.join(" "); // Converte array em texto
@@ -163,12 +164,15 @@
                     document.getElementById("status").innerHTML = "❌ Servidor Offline";
                     document.getElementById("players").innerHTML = "❌";
                     document.getElementById("motd").innerHTML = "❌";
+                    document.getElementById("playersOnline").textContent = "Servidor Offline";
                 }
             } catch (error) {
                 document.getElementById("status").innerHTML = "Erro ao obter informações";
                 document.getElementById("players").innerHTML = "--";
                 document.getElementById("motd").innerHTML = "--";
-                console.error("Erro:", error);
+                document.getElementById("playersOnline").textContent = "Erro ao carregar";
+                console.error("Erro ao obter status do servidor:", error);
+              
             }
         }
 
