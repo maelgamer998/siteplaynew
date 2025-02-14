@@ -416,9 +416,4 @@ button:hover {
 }
 .container {
     display: flex;
-    flex-wrap: wrap;
-}
-img {
-    max-width: 100%;
-    height: auto;
 }
