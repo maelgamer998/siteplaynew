@@ -145,7 +145,7 @@
   </div>
 </footer>    <script>
         async function verificarServidor() {
-            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
+            const ip = "jogar.playnew.site"; // Altere para o IP do seu servidor
             const url = `https://api.mcsrvstat.us/2/${ip}`;
 
             try {
@@ -154,7 +154,7 @@
 
                 // Verifica se o servidor está online
                 if (dados.online) {
-                    document.getElementById("status").innerHTML =</i> " Servidor ONLINE";
+                    document.getElementById("status").innerHTML =</i> " ✔️ Servidor online";
                     document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
                     
                     // Obtém o MOTD formatado corretamente
@@ -174,7 +174,7 @@
         }
 
         verificarServidor();
-        setInterval(verificarServidor, 10000); // Atualiza a cada 10 segundos
+        setInterval(verificarServidor, 5000); // Atualiza a cada 10 segundos
     </script>
 
     <script>
