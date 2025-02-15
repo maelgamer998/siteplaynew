@@ -120,8 +120,9 @@
           <div class="article-content">
             <ul class="equipe">
               <li>
+                <div class="member" onclick="openPopup('membro2')">
                 <a href="https://pt.namemc.com/profile/MrFelipeR.1" target="_blank">
-                <img src="https://cravatar.eu/helmhead/MrFelipeR">
+                <img src="https://cravatar.eu/helmhead/MrFelipeR" alt="Membro 2">
                 <h1>MrFelipeR</h1>
                 <h2 class="cor-4">Dono</h2></a>
               </li>
@@ -174,6 +175,13 @@
           </div>
         </article>
       </div>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+         <h2 id="popup-title"></h2>
+         <p id="popup-description"></p>
+      <button class="close-btn" onclick="closePopup()">Fechar</button>
+      </div>
+    </div>
     </div>
   </div>
 </main>
