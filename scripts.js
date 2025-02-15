@@ -64,3 +64,24 @@ messageInput.addEventListener('keypress', (event) => {
         sendButton.click();
     }
 });
+
+const descriptions = {
+    membro1: {
+        title: "Nome do Membro 1",
+        description: "Esse é um dos administradores do servidor PlayNew. Ele cuida da moderação e eventos."
+    },
+    membro2: {
+        title: "Nome do Membro 2",
+        description: "Esse membro ajuda na construção e criação de mapas incríveis para o servidor!"
+    }
+};
+
+function openPopup(memberId) {
+    document.getElementById("popup-title").innerText = descriptions[memberId].title;
+    document.getElementById("popup-description").innerText = descriptions[memberId].description;
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
