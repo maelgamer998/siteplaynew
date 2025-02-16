@@ -442,4 +442,7 @@ body {
 .member img:hover {
     transform: scale(1.1);
 }
+article {
+    text-align: left;
 
+}
