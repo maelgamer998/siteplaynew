@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback - Login com Discord</title>
+</head>
+<body>
+    <h1>Processando login...</h1>
+    <div id="userProfile" style="display: none;">
+        <img id="userAvatar" alt="Avatar">
+        <p id="userName"></p>
+        <button id="logoutButton">Logout</button>
+    </div>
+
+    <script>
+        const CLIENT_ID = '1340759181157732373'; // Substitua pelo seu Client ID
+        const REDIRECT_URI = 'https://maelgamer998.github.io/siteplaynew/callback';
+
+        window.onload = () => {
+            const hash = window.location.hash.substr(1);
+            const params = new URLSearchParams(hash);
+            const accessToken = params.get('access_token');
+
+            if (accessToken) {
+                fetch('https://discord.com/api/users/@me', {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`
+                    }
+                })
+                .then(response => response.json())
+                .then(user => {
+                    document.getElementById('userProfile').style.display = 'block';
+                    document.getElementById('userAvatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+                    document.getElementById('userName').innerText = `Nome: ${user.username}`;
+                    document.querySelector('h1').innerText = 'Login bem-sucedido!';
+                });
+            } else {
+                document.querySelector('h1').innerText = 'Falha no login. Tente novamente.';
+            }
+        };
+
+        document.getElementById('logoutButton').onclick = () => {
+            window.location.hash = '';
+            document.getElementById('userProfile').style.display = 'none';
+            document.querySelector('h1').innerText = 'Você fez logout. Até logo!';
+        };
+    </script>
+</body>
+</html>
