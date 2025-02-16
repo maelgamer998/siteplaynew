@@ -33,3 +33,14 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
   }
 });
 
+    document.addEventListener("DOMContentLoaded", function () {
+    var burger = document.querySelector(".navbar");
+    var menu = document.querySelector(".navbar-menu");
+
+    if (burger && menu) {
+        burger.addEventListener("click", function () {
+            burger.classList.toggle("is-active");
+            menu.classList.toggle("is-active");
+        });
+    }
+});
