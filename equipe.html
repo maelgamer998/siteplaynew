@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>PlayNew - Equipe</title>
+  <style>
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup {
+  background: rgba(59, 98, 39, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 400px; /* Define um tamanho máximo para o popup */
+  text-align: center;
+  position: relative;
+}
+
+.popup p {
+  font-family: 'Minecraft', sans-serif;
+  color: white;
+  font-size: 12px;
+  white-space: pre-line;
+  font-weight: normal; /* Remove o negrito */
+}
+.popup h1 {
+  font-family: 'Minecraft', sans-serif;
+  color: white;
+  font-size: 18px;
+  white-space: pre-line;
+  font-weight: normal; /* Remove o negrito */
+}
+
+.close-btn {
+  position: relative; /* Remove a posição absoluta */
+  display: block;
+  margin: 20px auto 0; /* Adiciona um espaçamento acima */
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #16a414;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #10660f;
+}
+
+
+    .logo {
+      width: auto;
+      animation: pulse 7s infinite;
+    }
+    @keyframes pulse {
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="section">
+  <div class="logo container">
+    <a href="index.html">
+      <img src="logo.png">
+    </a>
+  </div>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-burger burger">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html" class="navbar-item"><i class="fas fa-home"></i> Início</a>
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a href="loja.html" class="navbar-link"><i class="fas fa-shopping-cart"></i> Loja</a>
+            <div class="navbar-dropdown">
+              <a href="loja.html#vip" class="navbar-item"><i class="fas fa-gem"></i> VIPs</a>
+              <a href="loja.html#unban" class="navbar-item"><i class="fas fa-ban"></i> Unban</a>
+              <hr class="navbar-divider">
+              <a href="termos.html" class="navbar-item">Informações importantes</a>
+            </div>
+          </div>
+          <a href="forum.html" class="navbar-item"><i class="fas fa-comments"></i> Fórum</a>
+          <a href="regras.html" class="navbar-item"><i class="fas fa-book"></i> Regras</a>
+          <a href="votar.html" class="navbar-item"><i class="fas fa-vote-yea"></i> Votar</a>
+          <a href="equipe.html" class="navbar-item"><i class="fas fa-users"></i> Equipe</a>
+          <a href="plugin.html" class="navbar-item"><i class="fa-solid fa-download"></i>  Plugin</a>
+          <a href="https://discord.gg/ehBxGJ9ta9" class="navbar-item"><i class="fab fa-discord"></i> Discord</a>
+        </div>
+
+        <div class="navbar-end">
+          <a id="ip" class="navbar-item">
+            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+            <textarea></textarea>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+<div class="popup-container" id="popupContainer" onclick="closePopup(event)">
+    <div class="popup" onclick="event.stopPropagation()">
+	    <h1 id="popupName"></h1>
+	    <p id="popupText"></p>
+        <button class="close-btn" onclick="closePopup(event)">Fechar</button>
+
+    </div>
+</div>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <article class="article">
+          <h1 class="article-title"><i class="fas fa-chess-king"></i> Dono</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('MrFelipeR','É conhecido como o Dono do servidor.\nsempre com seu jeito sério!\nEle faz lives entao já sabe segue ele lá. 😁')">
+                <img src="https://cravatar.eu/helmhead/MrFelipeR" alt="MrFelipeR">
+                <h1>MrFelipeR</h1>
+                <h2 class="cor-c">Dono</h2></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article">
+          <h1 class="article-title"><i class="fa fa-shield-alt"></i> Administradores</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('nob557509','É conhecido como o Nob.\nEle é o braço direito do Felipe e um cara muito bacana.\nEle também faz Lives então segue ele também. 😍')">
+                <img src="https://cravatar.eu/helmhead/nob557509" alt="nob557509">
+                <h1>nob557509</h1>
+                <h2 class="cor-6">Administrador</h2></a>
+                </div>
+              </li>
+              <li>
+                <div class="membro" onclick="openPopup('lord_heith','É conhecido como o Lord.\nEsse cara parece que tem um enciclopedia no cerebro heheh\ncara super inteligente e super gente boa\num ótimo Adm. 👏')">
+                <img src="https://cravatar.eu/helmhead/lord_heith" alt="lord_heith">
+                <h1>LordHeith</h1>
+                <h2 class="cor-6">Administrador</h2></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article">
+          <h1 class="article-title"><i class="fa fa-user"></i> Desenvolvedores</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('MaeLGamer998','É conhecido como o Mael.\nEle é o cara por trás dos códigos\nSsempre ajudando quem precisa, é super gente boa e querido com todos. 😉')">
+                <img src="https://cravatar.eu/helmhead/maelgamer998" alt="maelgamer998">
+                <h1>MaeLGamer998</h1>
+                <h2 class="cor-5">Desenvolvedor</h2></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article">
+          <h1 class="article-title"><i class="fa fa-hands-helping"></i> Ajudantes</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('Descrição do Ajudante1...')">
+                <img src="https://cravatar.eu/helmhead/Ajudante1" alt="Ajudante1">
+                <h1>Ajudante1</h1>
+               
+                <h2 class="cor-2">Ajudante</h2></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="section">
+  <div class="container">
+    <article class="footer">
+      <span>&copy; PlayNew <script>document.write(new Date().getFullYear())</script>. Todos os direitos reservados.</span>
+      <a href="https://github.com/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
+    </article>
+  </div>
+</footer>
+
+<script>
+    function copiarTexto() {
+        var inputTexto = document.getElementById("jogar.playnew.site:28254");
+        inputTexto.select();
+        inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+        document.execCommand("copy");
+
+        alert("Texto copiado: " + inputTexto.value);
+    }
+</script>
+<script>
+function openPopup(name,text) {
+    document.getElementById('popupName').innerText = name;
+    document.getElementById('popupText').innerText = text;
+
+    let popupContainer = document.getElementById('popupContainer');
+    popupContainer.style.display = 'flex';
+}
+
+function closePopup(event) {
+    let popupContainer = document.getElementById('popupContainer');
+    if (event.target.id === 'popupContainer' || event.target.classList.contains('close-btn')) {
+        popupContainer.style.display = 'none';
+    }
+}
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+
+</body>
+</html>
