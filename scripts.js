@@ -34,7 +34,7 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
 });
 
     document.addEventListener("DOMContentLoaded", function () {
-    var burger = document.querySelector(".navbar");
+    var burger = document.querySelector(".navbar-burguer");
     var menu = document.querySelector(".navbar-menu");
 
     if (burger && menu) {
