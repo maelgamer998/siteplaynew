@@ -70,18 +70,6 @@ a.navbar-item.is-active, a.navbar-link.is-active,
         background-color: #222; /* Cor de fundo opcional */
         padding: 10px 0;
     }
-
-    .navbar-start, .navbar-end {
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar-item {
-        padding: 10px;
-        display: block;
-        color: white; /* Ajuste a cor do texto se necessário */
-    }
-
     .navbar-burger {
         display: none !important; /* Esconde o botão de três riscos */
     }
