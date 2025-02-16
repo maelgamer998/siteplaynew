@@ -27,7 +27,7 @@ header .navbar {
   background-color: var(--destaque);
   border-radius: 5px;
   text-align: left;
-  fonr-family: Minecraft, Sans-Serif
+  font-family: Minecraft, sans-serif;
 }
 
 .navbar-item,
