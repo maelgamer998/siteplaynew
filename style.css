@@ -29,6 +29,7 @@ header .navbar {
   text-align: left;
   font-family: Minecraft, sans-serif;
   font-weight: normal;
+  font-size: 10px;
 }
 
 .navbar-item,
