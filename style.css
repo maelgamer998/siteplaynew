@@ -26,6 +26,8 @@ header.section {
 header .navbar {
   background-color: var(--destaque);
   border-radius: 5px;
+  text-align: left;
+  fonr-family: Minecraft, Sans-Serif
 }
 
 .navbar-item,
