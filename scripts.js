@@ -92,3 +92,13 @@ if (savedUser && savedToken) {
     document.getElementById('user-info').style.display = 'block';
     document.getElementById('login-btn').style.display = 'none';
 }
+document.getElementById('logout-btn').addEventListener('click', function() {
+    localStorage.removeItem('discordUser');
+    localStorage.removeItem('discordToken');
+    location.reload(); // Recarrega a página para remover os dados do usuário
+});
+
+// Exibir botão de logout se o usuário estiver logado
+if (savedUser) {
+    document.getElementById('logout-btn').style.display = 'inline-block';
+}
