@@ -44,3 +44,51 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
         });
     }
 });
+// Função para obter parâmetros da URL (para pegar o token após o login)
+function getAccessToken() {
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    return params.get('access_token');
+}
+
+// Função para buscar dados do usuário
+function fetchDiscordUser(token) {
+    fetch('https://discord.com/api/users/@me', {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(response => response.json())
+    .then(user => {
+        // Exibir informações do usuário no site
+        document.getElementById('user-avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+        document.getElementById('user-name').textContent = user.username;
+        document.getElementById('user-info').style.display = 'block';
+
+        // Esconder botão de login
+        document.getElementById('login-btn').style.display = 'none';
+
+        // Salvar usuário no localStorage para manter a sessão
+        localStorage.setItem('discordUser', JSON.stringify(user));
+        localStorage.setItem('discordToken', token);
+    })
+    .catch(error => console.error('Erro ao obter dados do usuário:', error));
+}
+
+// Verificar se há um token na URL (quando o usuário faz login pela primeira vez)
+const token = getAccessToken();
+if (token) {
+    // Remover o token da URL para segurança
+    window.history.replaceState({}, document.title, window.location.pathname);
+    fetchDiscordUser(token);
+}
+
+// Se o usuário já estiver logado (dados salvos no localStorage), restaurar sessão
+const savedUser = localStorage.getItem('discordUser');
+const savedToken = localStorage.getItem('discordToken');
+
+if (savedUser && savedToken) {
+    const user = JSON.parse(savedUser);
+    document.getElementById('user-avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+    document.getElementById('user-name').textContent = user.username;
+    document.getElementById('user-info').style.display = 'block';
+    document.getElementById('login-btn').style.display = 'none';
+}
