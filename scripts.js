@@ -102,3 +102,30 @@ document.getElementById('logout-btn').addEventListener('click', function() {
 if (savedUser) {
     document.getElementById('logout-btn').style.display = 'inline-block';
 }
+// scripts.js
+document.addEventListener('DOMContentLoaded', function() {
+  const profilePic = document.getElementById('profilePic');
+  const profileMenu = document.getElementById('profileMenu');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  // Mostrar o menu ao passar o mouse sobre a foto
+  profilePic.addEventListener('mouseover', function() {
+    profileMenu.style.display = 'block';
+  });
+
+  // Esconder o menu ao sair da foto de perfil
+  profilePic.addEventListener('mouseout', function() {
+    profileMenu.style.display = 'none';
+  });
+
+  // Mostrar o menu ao clicar na foto
+  profilePic.addEventListener('click', function() {
+    profileMenu.style.display = (profileMenu.style.display === 'block') ? 'none' : 'block';
+  });
+
+  // Logout (apenas exemplo de funcionalidade)
+  logoutBtn.addEventListener('click', function() {
+    alert('Você foi desconectado.');
+    // Aqui você pode adicionar o código para desconectar o usuário
+  });
+});
