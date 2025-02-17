@@ -16,6 +16,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   animation: fadeIn 0.5s forwards;
+  font-family: Minecraft, sans-serif;
+  font-weight: normal;
 }
 
 header.section {
@@ -29,7 +31,7 @@ header .navbar {
   text-align: left;
   font-family: Minecraft, sans-serif;
   font-weight: normal;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .navbar-item,
@@ -407,15 +409,6 @@ button {
 button:hover {
     background-color: #218838;
 }
-
-body {
-    font-family: Minecraft, sans-serif;
-    font-weight: normal;
-    text-align: center;
-    background-color: #222;
-    color: white;
-}
-
 .team {
     display: flex;
     justify-content: center;
