@@ -407,16 +407,10 @@ button {
 button:hover {
     background-color: #218838;
 }
+
 body {
-    font-family: Arial, sans-serif;
-}
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #222;
-    color: white;
-}body {
-    font-family: Arial, sans-serif;
+    font-family: Minecraft, sans-serif;
+    font-weight: normal;
     text-align: center;
     background-color: #222;
     color: white;
