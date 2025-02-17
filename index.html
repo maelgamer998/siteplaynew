@@ -75,7 +75,7 @@
 
         <div class="navbar-end">
           <a id="ip" class="navbar-item">
-            <input type="text" id="server-ip" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
             <textarea></textarea>
           </a>
         </div>
@@ -174,10 +174,10 @@
                     document.getElementById("playersOnline").textContent = "Servidor Offline";
                 }
             } catch (error) {
-                document.getElementById("status").innerHTML = "Erro ao obter informações";
+                document.getElementById("status").innerHTML = "⛔ Erro ao obter informações";
                 document.getElementById("players").innerHTML = "--";
                 document.getElementById("motd").innerHTML = "--";
-                document.getElementById("playersOnline").textContent = "Erro ao carregar";
+                document.getElementById("playersOnline").textContent = "🫤 Erro ao carregar";
                 console.error("Erro ao obter status do servidor:", error);
               
             }
