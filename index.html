@@ -29,6 +29,10 @@
       }
   </style>
 </head>
+  <div id="user-box" class="user-container">
+  <!-- Avatar e Nome do Usuário serão adicionados via JavaScript -->
+</div>
+
   <a id="login-btn" href="https://discord.com/api/oauth2/authorize?client_id=1340759181157732373&redirect_uri=https://maelgamer998.github.io/siteplaynew/index.html&response_type=token&scope=identify" 
    style="padding: 10px 15px; background-color: #5865F2; color: white; border-radius: 5px; text-decoration: none;">
     Login com Discord
@@ -279,6 +283,43 @@ document.getElementById('logout-btn').addEventListener('click', function() {
 if (savedUser) {
     document.getElementById('logout-btn').style.display = 'inline-block';
 }
+function atualizarUsuario() {
+  let userData = localStorage.getItem("discord_user");
+
+  if (userData) {
+    let user = JSON.parse(userData);
+    let userBox = document.getElementById("user-box");
+
+    if (userBox) {
+      userBox.innerHTML = `
+        <img src="${user.avatar}" alt="Avatar" style="width: 40px; height: 40px; border-radius: 50%;">
+        <div id="user-menu">
+          <img src="${user.avatar}" alt="Avatar">
+          <span>${user.username}</span>
+          <button onclick="logout()">Sair</button>
+        </div>
+      `;
+
+      // Adicionar eventos para mostrar e esconder o menu
+      userBox.addEventListener("mouseenter", () => {
+        document.getElementById("user-menu").style.display = "block";
+      });
+
+      userBox.addEventListener("mouseleave", () => {
+        document.getElementById("user-menu").style.display = "none";
+      });
+    }
+  }
+}
+
+// Função para logout
+function logout() {
+  localStorage.removeItem("discord_user");
+  window.location.reload(); // Recarrega a página para remover os dados do usuário
+}
+
+// Chamar a função quando a página carregar
+document.addEventListener("DOMContentLoaded", atualizarUsuario);
 </script>
 </body>
 
