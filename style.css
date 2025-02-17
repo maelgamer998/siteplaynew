@@ -441,5 +441,11 @@ body {
 }
 article {
     text-align: left;
-
+}
+.discord-widget {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    max-height: 500px;
+    overflow: hidden;
 }
