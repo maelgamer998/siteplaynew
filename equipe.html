@@ -257,7 +257,24 @@
         verificarServidor();
         setInterval(verificarServidor, 100000); // Atualiza a cada 10 segundos
     </script>
+<script>
+function openPopup(name,text) {
+    document.getElementById('popupName').innerText = name;
+    document.getElementById('popupText').innerText = text;
 
+    let popupContainer = document.getElementById('popupContainer');
+    popupContainer.style.display = 'flex';
+}
+
+function closePopup(event) {
+    let popupContainer = document.getElementById('popupContainer');
+    if (event.target.id === 'popupContainer' || event.target.classList.contains('close-btn')) {
+        popupContainer.style.display = 'none';
+    }
+}
+
+
+</script>
     <script>
         function copiarTexto() {
             var inputTexto = document.getElementById("jogar.playnew.site");
