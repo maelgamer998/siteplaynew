@@ -34,10 +34,24 @@
           border: 0;
           font-size: 2px;
     }
+      body { font-family: Arial, sans-serif; text-align: center; }
+          #loginBtn { padding: 10px 20px; background: #5865F2; color: white; border: none; cursor: pointer; }
+          #userContainer { position: absolute; top: 10px; right: 10px; display: none; }
+          #profilePic { width: 50px; height: 50px; border-radius: 50%; cursor: pointer; }
+          #userInfo { display: none; position: absolute; top: 60px; right: 10px; background: white; padding: 10px; border: 1px solid #ccc; }
   </style>
 </head>
   
 <body>
+  <button id="loginBtn">Login com Discord</button>
+  <div id="userContainer">
+      <img id="profilePic" src="" alt="Perfil">
+      <div id="userInfo">
+          <img id="fullPic" src="" width="100" alt="">
+          <p id="username"></p>
+          <button onclick="logout()">Logout</button>
+      </div>
+  </div>
 <header class="section">
   <div class="logo container">
     <a href="index.html">
@@ -215,6 +229,64 @@
         });
     }
 });
+</script>
+<script>
+  const clientId = "1340759181157732373";
+  const redirectUri = "https://maelgamer998.github.io/siteplaynew/index.html";
+  const apiUrl = "https://discord.com/api/users/@me";
+  
+  function login() {
+      const authUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=identify`;
+      window.location.href = authUrl;
+  }
+  
+  async function getUserInfo(token) {
+      try {
+          const response = await fetch(apiUrl, { headers: { Authorization: `Bearer ${token}` } });
+          if (!response.ok) throw new Error("Falha ao obter dados do usuário");
+          const data = await response.json();
+          
+          document.getElementById("profilePic").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
+          document.getElementById("fullPic").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
+          document.getElementById("username").innerText = data.username;
+          document.getElementById("userContainer").style.display = "block";
+          
+          localStorage.setItem("discordUser", JSON.stringify(data));
+          localStorage.setItem("discordToken", token);
+      } catch (error) {
+          console.error("Erro ao buscar informações do usuário:", error);
+          logout();
+      }
+  }
+  
+  function checkLogin() {
+      const token = localStorage.getItem("discordToken");
+      if (token) {
+          getUserInfo(token);
+      } else {
+          const hash = window.location.hash;
+          if (hash.includes("access_token")) {
+              const newToken = new URLSearchParams(hash.substring(1)).get("access_token");
+              localStorage.setItem("discordToken", newToken);
+              window.history.replaceState({}, document.title, window.location.pathname);
+              getUserInfo(newToken);
+          }
+      }
+  }
+  
+  function logout() {
+      localStorage.removeItem("discordToken");
+      localStorage.removeItem("discordUser");
+      document.getElementById("userContainer").style.display = "none";
+  }
+  
+  document.getElementById("loginBtn").addEventListener("click", login);
+  document.getElementById("profilePic").addEventListener("click", () => {
+      document.getElementById("userInfo").style.display = 
+          document.getElementById("userInfo").style.display === "block" ? "none" : "block";
+  });
+  
+  checkLogin();
 </script>
 </body>
 
