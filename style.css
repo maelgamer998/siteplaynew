@@ -70,7 +70,7 @@ a.navbar-item.is-active, a.navbar-link.is-active,
 }
 
 .logo.container img {
-  max-height: 60px;
+  max-height: 100px;
   transition: all .2s ease-out;
 }
 
