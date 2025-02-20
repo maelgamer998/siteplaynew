@@ -231,70 +231,50 @@
 });
 </script>
 <script>
-  const clientId = "1340759181157732373";
-  const redirectUri = "https://maelgamer998.github.io/siteplaynew/index.html";
-  const apiUrl = "https://discord.com/api/users/@me";
-        
-        function login() {
-            const authUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=identify`;
-            window.location.href = authUrl;
-        }
-        
-        async function getUserInfo(token) {
-            try {
-                const response = await fetch(apiUrl, { headers: { Authorization: `Bearer ${token}` } });
-                if (!response.ok) throw new Error("Falha ao obter dados do usuário");
-                const data = await response.json();
-                
-                document.getElementById("profilePic").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
-                document.getElementById("fullPic").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
-                document.getElementById("username").innerText = data.username;
-                document.getElementById("userContainer").style.display = "block";
-                document.getElementById("loginBtn").style.display = "none";
-                
-                localStorage.setItem("discordUser", JSON.stringify(data));
-                localStorage.setItem("discordToken", token);
-            } catch (error) {
-                console.error("Erro ao buscar informações do usuário:", error);
-                logout();
-            }
-        }
-        
-        function checkLogin() {
-            const token = localStorage.getItem("discordToken");
-            const userData = localStorage.getItem("discordUser");
-            if (token && userData) {
-                const data = JSON.parse(userData);
-                document.getElementById("profilePic").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
-                document.getElementById("fullPic").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
-                document.getElementById("username").innerText = data.username;
-                document.getElementById("userContainer").style.display = "block";
-                document.getElementById("loginBtn").style.display = "none";
-            } else {
-                const hash = window.location.hash;
-                if (hash.includes("access_token")) {
-                    const newToken = new URLSearchParams(hash.substring(1)).get("access_token");
-                    localStorage.setItem("discordToken", newToken);
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                    getUserInfo(newToken);
-                }
-            }
-        }
-        
-        function logout() {
-            localStorage.removeItem("discordToken");
-            localStorage.removeItem("discordUser");
-            document.getElementById("userContainer").style.display = "none";
-            document.getElementById("loginBtn").style.display = "block";
-        }
-        
-        document.getElementById("loginBtn").addEventListener("click", login);
-        document.getElementById("profilePic").addEventListener("click", () => {
-            document.getElementById("userInfo").style.display = 
-                document.getElementById("userInfo").style.display === "block" ? "none" : "block";
+        const CLIENT_ID = "1340759181157732373"; // Substitua pelo Client ID da sua aplicação
+        const REDIRECT_URI = "https://maelgamer998.github.io/siteplaynew/index.html"; // Substitua pela URL do seu site
+        const AUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify%20email`;
+
+        document.getElementById("login").addEventListener("click", () => {
+            window.location.href = AUTH_URL;
         });
-        
-        checkLogin();
+
+        window.onload = () => {
+            const fragment = new URLSearchParams(window.location.hash.slice(1));
+            const accessToken = fragment.get("access_token");
+
+            if (accessToken) {
+                fetch("https://discord.com/api/users/@me", {
+                    headers: { Authorization: `Bearer ${accessToken}` }
+                })
+                .then(res => res.json())
+                .then(user => {
+                    document.getElementById("login").style.display = "none";
+                    document.getElementById("user-info").style.display = "block";
+                    document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+                    document.getElementById("username").innerText = `Bem-vindo, ${user.username}#${user.discriminator}`;
+
+                    localStorage.setItem("user", JSON.stringify(user));
+                    localStorage.setItem("token", accessToken);
+                });
+            }
+
+            const savedUser = localStorage.getItem("user");
+            if (savedUser) {
+                const user = JSON.parse(savedUser);
+                document.getElementById("login").style.display = "none";
+                document.getElementById("user-info").style.display = "block";
+                document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+                document.getElementById("username").innerText = `Bem-vindo, ${user.username}#${user.discriminator}`;
+            }
+        };
+
+        document.getElementById("logout").addEventListener("click", () => {
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            document.getElementById("user-info").style.display = "none";
+            document.getElementById("login").style.display = "block";
+        });
 </script>
 </body>
 
