@@ -43,12 +43,10 @@
 </head>
   
 <body>
-    <button id="login">Login com Discord</button>
+    <button onclick="login()">Login com Discord</button>
 
-    <div id="user-info">
-        <img id="avatar" src="" alt="Avatar">
-        <button id="logout">Logout</button>
-    </div>
+        <div id="profile"></div>
+        <button onclick="logout()">Logout</button>
 
 <header class="section">
   <div class="logo container">
@@ -278,6 +276,65 @@
             userInfo.style.display = "none";
             loginBtn.style.display = "block";
         });
+</script>
+  <script>
+  // Configuração do Auth0
+  const auth0 = new auth0.WebAuth({
+    domain: "SEU-DOMINIO.auth0.com",
+    clientID: "SEU-CLIENT-ID",
+    redirectUri: "http://localhost/callback",
+    responseType: "token id_token",
+    scope: "openid profile email"
+  });
+
+  // Função para iniciar login
+  function login() {
+    auth0.authorize({
+      connection: "discord" // Usa o provedor de login do Discord
+    });
+  }
+
+  // Função para logout
+  function logout() {
+    localStorage.removeItem("id_token");
+    location.href = "/";
+  }
+
+  // Função para processar resposta após login
+  function handleAuthentication() {
+    auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.idToken) {
+        localStorage.setItem("id_token", authResult.idToken);
+        window.location.href = "/";
+      } else if (err) {
+        console.log(err);
+      }
+    });
+  }
+
+  // Executa a função ao carregar a página
+  window.onload = function () {
+    handleAuthentication();
+  };
+</script>
+<script>
+  function showUserProfile() {
+    auth0.client.userInfo(localStorage.getItem("id_token"), (err, user) => {
+      if (user) {
+        document.getElementById("profile").innerHTML = `
+          <img src="${user.picture}" alt="Avatar" width="50">
+          <p>${user.name}</p>
+          <button onclick="logout()">Sair</button>
+        `;
+      }
+    });
+  }
+
+  window.onload = function () {
+    if (localStorage.getItem("id_token")) {
+      showUserProfile();
+    }
+  };
 </script>
 </body>
 
