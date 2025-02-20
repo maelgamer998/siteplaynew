@@ -233,7 +233,7 @@
   // Função para iniciar login
   function login() {
     auth0.authorize({
-      connection: "discord" // Usa o provedor de login do Discord
+      connection: "https://maelgamer998.github.io/siteplaynew/index.html" // Usa o provedor de login do Discord
     });
   }
 
@@ -248,7 +248,7 @@
     auth0.parseHash((err, authResult) => {
       if (authResult && authResult.idToken) {
         localStorage.setItem("id_token", authResult.idToken);
-        window.location.href = "/";
+        window.location.href = "https://maelgamer998.github.io/siteplaynew/index.html";
       } else if (err) {
         console.log(err);
       }
