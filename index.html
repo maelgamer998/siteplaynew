@@ -228,62 +228,12 @@
 });
 </script>
 <script>
-        const CLIENT_ID = "1340759181157732373"; // Substitua pelo Client ID da sua aplicação
-        const REDIRECT_URI = "https://maelgamer998.github.io/siteplaynew/index.html"; // Substitua pela URL do seu site
-        const AUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=identify%20email`;
-
-        const loginBtn = document.getElementById("login");
-        const logoutBtn = document.getElementById("logout");
-        const userInfo = document.getElementById("user-info");
-        const avatarImg = document.getElementById("avatar");
-
-        loginBtn.addEventListener("click", () => {
-            window.location.href = AUTH_URL;
-        });
-
-        window.onload = () => {
-            const fragment = new URLSearchParams(window.location.hash.slice(1));
-            const accessToken = fragment.get("access_token");
-
-            if (accessToken) {
-                fetch("https://discord.com/api/users/@me", {
-                    headers: { Authorization: `Bearer ${accessToken}` }
-                })
-                .then(res => res.json())
-                .then(user => {
-                    loginBtn.style.display = "none"; // Esconde o botão de login
-                    userInfo.style.display = "flex"; // Mostra a foto e o botão de logout
-                    avatarImg.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-
-                    localStorage.setItem("user", JSON.stringify(user));
-                    localStorage.setItem("token", accessToken);
-                });
-            }
-
-            // Se o usuário já estiver logado (dados salvos no localStorage)
-            const savedUser = localStorage.getItem("user");
-            if (savedUser) {
-                const user = JSON.parse(savedUser);
-                loginBtn.style.display = "none"; 
-                userInfo.style.display = "flex";
-                avatarImg.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-            }
-        };
-
-        logoutBtn.addEventListener("click", () => {
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-            userInfo.style.display = "none";
-            loginBtn.style.display = "block";
-        });
-</script>
-  <script>
   // Configuração do Auth0
   const auth0 = new auth0.WebAuth({
-    domain: "SEU-DOMINIO.auth0.com",
-    clientID: "SEU-CLIENT-ID",
-    redirectUri: "http://localhost/callback",
-    responseType: "token id_token",
+    domain: "dev-t1sxxxcz5u7wub7c.us.auth0.com",
+    clientID: "6f8X20WjcLH6DbgjrzkrdYIzKtKomr37",
+    redirectUri: "https://maelgamer998.github.io/siteplaynew/index.html",
+    responseType: "9jZzY2LykZPEUu7YwNAjYHXeU6yp9AMMCItfyythOeVyi4_iKw5ISgAVcWcInymS",
     scope: "openid profile email"
   });
 
