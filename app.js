@@ -1,7 +1,7 @@
 document.getElementById('login-button').addEventListener('click', function() {
     // Redireciona o usuário para a página de login do Discord
     const clientId = '1340759181157732373';
-    const redirectUri = encodeURIComponent(window.location.origin + 'https://maelgamer998.github.io/siteplaynew/index.html');
+    const redirectUri = encodeURIComponent('https://maelgamer998.github.io/siteplaynew/index.html';
     window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=identify`;
 });
 
