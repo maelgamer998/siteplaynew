@@ -37,10 +37,17 @@
   </style>
 </head>
 <body>
-      <button onclick="login()">Login com Discord aqui</button>
-
-        <div id="profile"></div>
-        <button onclick="logout()">Logout</button>
+    <div id="login-section">
+        <button id="login-button">Login com Discord</button>
+    </div>
+    <div id="user-profile" class="user-profile">
+        <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+        <div id="dropdown-menu" class="dropdown-menu">
+            <img id="dropdown-avatar" src="" alt="Dropdown Avatar" width="50" height="50">
+            <p id="user-name"></p>
+            <button id="logout-button">Logout</button>
+        </div>
+    </div>
 <header class="section">
   <div class="logo container">
     <a href="index.html">
@@ -203,7 +210,7 @@
     </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="scripts.js"></script>
-<script src="Auth0.js"></script>
+<script src="app.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
 <script src="https://cdn.auth0.com/js/auth0/9.19/auth0.min.js"></script>
@@ -219,65 +226,6 @@
         });
     }
 });
-</script>
-<script>
-  // Configuração do Auth0
-  const auth0 = new auth0.WebAuth({
-    domain: "dev-t1sxxxcz5u7wub7c.us.auth0.com",
-    clientID: "6f8X20WjcLH6DbgjrzkrdYIzKtKomr37",
-    redirectUri: "https://maelgamer998.github.io/siteplaynew/index.html",
-    responseType: "9jZzY2LykZPEUu7YwNAjYHXeU6yp9AMMCItfyythOeVyi4_iKw5ISgAVcWcInymS",
-    scope: "identify"
-  });
-
-  // Função para iniciar login
-  function login() {
-    auth0.authorize({
-      connection: "https://maelgamer998.github.io/siteplaynew/index.html" // Usa o provedor de login do Discord
-    });
-  }
-
-  // Função para logout
-  function logout() {
-    localStorage.removeItem("id_token");
-    location.href = "https://maelgamer998.github.io/siteplaynew/index.html";
-  }
-
-  // Função para processar resposta após login
-  function handleAuthentication() {
-    auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.idToken) {
-        localStorage.setItem("id_token", authResult.idToken);
-        window.location.href = "https://maelgamer998.github.io/siteplaynew/index.html";
-      } else if (err) {
-        console.log(err);
-      }
-    });
-  }
-
-  // Executa a função ao carregar a página
-  window.onload = function () {
-    handleAuthentication();
-  };
-</script>
-<script>
-  function showUserProfile() {
-    auth0.client.userInfo(localStorage.getItem("id_token"), (err, user) => {
-      if (user) {
-        document.getElementById("profile").innerHTML = `
-          <img src="${user.picture}" alt="Avatar" width="50">
-          <p>${user.name}</p>
-          <button onclick="logout()">Sair</button>
-        `;
-      }
-    });
-  }
-
-  window.onload = function () {
-    if (localStorage.getItem("id_token")) {
-      showUserProfile();
-    }
-  };
 </script>
 </body>
 
