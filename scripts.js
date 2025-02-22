@@ -56,6 +56,8 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
             const redirectUri = 'https://maelgamer998.github.io/siteplaynew/index.html';
             const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=identify`;
 
+`https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=identify`;
+
             window.location.href = authUrl;
         });
 
@@ -82,18 +84,14 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
                 .catch(console.error);
             }
         });
-});   
+
+        document.getElementById("user-avatar").addEventListener("click", function() {
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+
         document.getElementById("logout-button").addEventListener("click", function(){
             localStorage.removeItem("access_token");
             document.getElementById("login-section").style.display = "block";
             document.getElementById("user-profile").style.display = "none";
-        });
-        document.getElementById("user-avatar").addEventListener("click", function() {
-            const dropdownMenu = document.getElementById("dropdown-menu");
-            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-            
-            // Ajusta a posição do dropdown se estiver fora da tela
-            const rect = dropdownMenu.getBoundingClientRect();
-            if (rect.right > window.innerWidth) {
-                dropdownMenu.style.right = '40px'; // Ajuste conforme necessário
-            }
+        
