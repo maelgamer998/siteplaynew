@@ -61,11 +61,13 @@
         }
 
         .dropdown-menu {
+            display: none;
             position: absolute;
-            top: 100%; /* Abaixa o menu */
-            right: 0; /* Alinha na borda direita do botão */
-            background: white;
-            border-radius: 5px;
+            right: 0; /* Alinha à direita do container pai */
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            text-align: right; /* Alinha o texto à direita */
         }
 
         #user-profile:hover .dropdown-menu {
