@@ -94,4 +94,4 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
             localStorage.removeItem("access_token");
             document.getElementById("login-section").style.display = "block";
             document.getElementById("user-profile").style.display = "none";
-        
+        });
