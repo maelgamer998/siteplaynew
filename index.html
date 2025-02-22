@@ -34,7 +34,42 @@
           border: 0;
           font-size: 2px;
         }
+    #login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background-color: #554754;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
+.user-profile {
+    text-align: right;
+    position: relative; /* Adicionei esta linha */
+    display: none; /* Escondido inicialmente */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinha à direita do container pai */
+    background-color: #545456;
+    z-index: 1;
+}
+
+#user-avatar {
+    cursor: pointer; /* Adicionei esta linha para mostrar que é clicável */
+}
+
+#user-avatar, #dropdown-avatar {
+    border-radius: 50%; /* Torna a imagem redonda */
+}
   </style>
 </head>
 <body>
