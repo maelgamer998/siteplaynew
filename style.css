@@ -446,3 +446,48 @@ article {
     font-family: 'Minecraft', sans-serif;
     font-weight: normal;
 }
+#login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background-color: #554754;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile {
+    text-align: right;
+    position: relative; /* Adicionei esta linha */
+    display: none; /* Escondido inicialmente */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px; 
+    left: 1170px; 
+    background: rgba(44, 44, 44, 0.5);
+    z-index: 9999;
+    text-align: center;
+    font-family: Minecraft, Arial, Sans-serif;
+    width: auto; /* Ajusta a largura automaticamente ao conteúdo */
+    height: auto; /* Ajusta a altura automaticamente ao conteúdo */
+    padding: 10px; /* Adicione um padding para espaço interno */
+    box-sizing: border-box; /* Inclui padding e borda na largura e altura totais */
+    max-width: 70px;
+    font-weight: normal;
+}
+
+#user-avatar {
+    cursor: pointer; /* Adicionei esta linha para mostrar que é clicável */
+}
+
+#user-avatar, #dropdown-avatar {
+    border-radius: 50%; /* Torna a imagem redonda */
+}
