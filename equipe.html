@@ -172,17 +172,18 @@
         </div>
 
         <div class="navbar-end">
-          <a class="navbar-item ">
-	    <div id="user-profile" class="user-profile" style="display: none;">
-              <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
-	      <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button><button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
-	    </div>
-	  </a>
+         <div class="navbar">
+  <!-- Outros itens de navegação -->
+            <div class="login-area">
+    <!-- Botões de Login, Logout e Foto de Perfil -->
+             <button id="login-button">Login</button>
+              <button id="logout-button">Logout</button>
+	      <div id="user-profile" class="user-profile" style="display: none;">
+               <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+             </div>
+           </div>
         </div>
-      </div>
-    </nav>
-  </div>
-</header>
+       </div>
 <main class="section">
 <div class="popup-container" id="popupContainer" onclick="closePopup(event)">
     <div class="popup" onclick="event.stopPropagation()">
