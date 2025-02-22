@@ -82,10 +82,7 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
                 .catch(console.error);
             }
         });
-});
-
-
-        
+});   
         document.getElementById("logout-button").addEventListener("click", function(){
             localStorage.removeItem("access_token");
             document.getElementById("login-section").style.display = "block";
