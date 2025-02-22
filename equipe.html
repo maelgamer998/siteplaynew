@@ -135,6 +135,20 @@
   </style>
 </head>
 <body>
+    <div id="login-section">
+        <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
+    </div>
+    <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+        <div id="dropdown-menu" class="dropdown-menu">
+            <img id="dropdown-avatar" src="" alt="Dropdown Avatar" width="50" height="50">
+            <p class="cor-f">Bem vindo!</p>
+            <p id="user-name" class="cor-f">Nome do Usuário</p>
+
+            <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
+        </div>
+    </div>
+</body>
 <header class="section">
   <div class="logo container">
     <a href="index.html">
@@ -172,12 +186,14 @@
         </div>
 
         <div class="navbar-end">
-         <a id="user-avatar" src="" alt="User Avatar" width="50" height="50" class="navbar-item">
-             <button id="login-button">Login</button>
-              <button id="logout-button">Logout</button>
+          <a id="ip" class="navbar-item">
+            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+            <textarea></textarea>
+          </a>
         </div>
-       </div>
+      </div>
     </nav>
+  </div>
 </header>
 <main class="section">
 <div class="popup-container" id="popupContainer" onclick="closePopup(event)">
