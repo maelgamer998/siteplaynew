@@ -93,11 +93,11 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
             document.getElementById("login-section").style.display = "block";
             document.getElementById("user-profile").style.display = "none";
         });
-    document.getElementById("login-button").addEventListener("click", function(event){
-      event.preventDefault(); // Impede o recarregamento da página
+
+        document.getElementById("login-button").addEventListener("click", function(event){
+          event.preventDefault(); // Impede o recarregamento da página
             // Esconde o botão de login
-    document.getElementById("login-section").style.display = "none";
+        document.getElementById("login-section").style.display = "none";
             // Exibe a seção do perfil do usuário
-    document.getElementById("user-profile").style.display = "block";
-           }
-        });
+        document.getElementById("user-profile").style.display = "block";
+        }
