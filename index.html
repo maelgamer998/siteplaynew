@@ -34,49 +34,51 @@
           border: 0;
           font-size: 2px;
         }
-        #login-section {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        #login-button {
-            padding: 10px 20px;
-            background-color: #1111;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    #login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background-color: #1111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        .user-profile {
-            text-align: right;
-            display: none; /* Escondido inicialmente */
-        }
+.user-profile {
+    text-align: right;
+    position: relative; /* Adicionei esta linha */
+    display: none; /* Escondido inicialmente */
+}
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            right: 0; /* Alinha à direita do container pai */
-            background-color: white;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinha à direita do container pai */
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 
-        #user-profile:hover .dropdown-menu {
-            display: block;
-        }
+#user-avatar {
+    cursor: pointer; /* Adicionei esta linha para mostrar que é clicável */
+}
 
-        #user-avatar, #dropdown-avatar {
-            border-radius: 50%; /* Torna a imagem redonda */
-        }
+#user-avatar, #dropdown-avatar {
+    border-radius: 50%; /* Torna a imagem redonda */
+}
+
   </style>
 </head>
 <body>
     <div id="login-section">
         <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Fazer login!</button>
     </div>
-    <div id="user-profile" class="user-profile">
+    <div id="user-profile" class="user-profile" style="display: none;">
         <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
         <div id="dropdown-menu" class="dropdown-menu">
             <img id="dropdown-avatar" src="" alt="Dropdown Avatar" width="50" height="50">
@@ -84,6 +86,8 @@
             <button id="logout-button">Logout</button>
         </div>
     </div>
+</body>
+<body>
 <header class="section">
   <div class="logo container">
     <a href="index.html">
