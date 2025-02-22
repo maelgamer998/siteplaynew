@@ -135,12 +135,18 @@
   </style>
 </head>
 <body>
-    <div id="ip-section">
-        <a id="ip" class="navbar-item">
-            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
-            <textarea></textarea>
-        </a>
-    </div>
+	    <div id="login-section" style="display: none;">
+                <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
+            </div>
+            <div id="user-profile" class="user-profile">
+                <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+                <div id="dropdown-menu" class="dropdown-menu">
+                    <img id="dropdown-avatar" alt="Dropdown Avatar" width="50" height="50">
+                    <p class="cor-f">Bem vindo!</p>
+                    <p id="user-name" class="cor-f">Nome do Usuário</p>
+                    <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
+                </div>
+            </div>
 </body>
 
 <header class="section">
@@ -180,18 +186,13 @@
         </div>
 
         <div class="navbar-end">
-	    <div id="login-section" style="display: none;">
-                <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
-            </div>
-            <div id="user-profile" class="user-profile">
-                <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
-                <div id="dropdown-menu" class="dropdown-menu">
-                    <img id="dropdown-avatar" alt="Dropdown Avatar" width="50" height="50">
-                    <p class="cor-f">Bem vindo!</p>
-                    <p id="user-name" class="cor-f">Nome do Usuário</p>
-                    <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
-                </div>
-            </div>
+	   <div class="navbar-item">
+	     <div id="ip-section">
+               <a id="ip" class="navbar-item">
+               <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+               <textarea></textarea>
+               </a>
+              </div>
         </div>
       </div>
     </nav>
