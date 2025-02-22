@@ -274,56 +274,7 @@
     }
 });
 </script>
-    <script>
-        document.getElementById("login-button").addEventListener("click", function(){
-            const clientId = '1340759181157732373';
-            const redirectUri = 'https://maelgamer998.github.io/siteplaynew/index.html';
-            const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=identify`;
 
-            window.location.href = authUrl;
-        });
-
-        window.addEventListener("load", function() {
-            const hash = window.location.hash.substr(1);
-            const params = new URLSearchParams(hash);
-            const accessToken = params.get("access_token") || localStorage.getItem("access_token");
-
-            if (accessToken) {
-                localStorage.setItem("access_token", accessToken);
-                fetch('https://discord.com/api/users/@me', {
-                    headers: {
-                        'Authorization': `Bearer ${accessToken}`
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("login-section").style.display = "none";
-                    document.getElementById("user-avatar").src = data.avatar ? `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png` : 'https://cdn.discordapp.com/embed/avatars/0.png';
-                    document.getElementById("dropdown-avatar").src = data.avatar ? `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png` : 'https://cdn.discordapp.com/embed/avatars/0.png';
-                    document.getElementById("user-name").textContent = data.username;
-                    document.getElementById("user-profile").style.display = "block";
-                })
-                .catch(console.error);
-            }
-        });
-
-        document.getElementById("user-avatar").addEventListener("click", function() {
-            const dropdownMenu = document.getElementById("dropdown-menu");
-            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-            
-            // Ajusta a posição do dropdown se estiver fora da tela
-            const rect = dropdownMenu.getBoundingClientRect();
-            if (rect.right > window.innerWidth) {
-                dropdownMenu.style.right = '10px'; // Ajuste conforme necessário
-            }
-        });
-
-        document.getElementById("logout-button").addEventListener("click", function(){
-            localStorage.removeItem("access_token");
-            document.getElementById("login-section").style.display = "block";
-            document.getElementById("user-profile").style.display = "none";
-        });
-    </script>
 </body>
 
 </html>
