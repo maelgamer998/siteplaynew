@@ -34,14 +34,19 @@
           border: 0;
           font-size: 2px;
         }
+        #server-address {
+            margin-left: 20px;
+        }
         #login-section {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 10px; /* Ajuste conforme necessário */
+            right: 10px; /* Ajuste conforme necessário */
+            padding: 10px; /* Espaçamento interno */
+            border-radius: 5px; /* Borda arredondada opcional */
         }
         #login-button {
             padding: 10px 20px;
-            background-color: #16a414;
+            background-color: #7289da;
             color: white;
             border: none;
             border-radius: 5px;
@@ -50,10 +55,9 @@
         }
 
         .user-profile {
-            margin-top: 50px;
-            text-align: left;
+            margin-top: 20px;
+            text-align: center;
             display: none; /* Escondido inicialmente */
-            border-radius: 50px;
         }
 
         .dropdown-menu {
@@ -64,12 +68,14 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
             text-align: right; /* Alinha o texto à direita */
-            width: 100%;
         }
 
         #user-profile:hover .dropdown-menu {
             display: block;
-        
+        }
+        #user-avatar, #dropdown-avatar {
+            border-radius: 50%; /* Torna a imagem redonda */
+        }
   </style>
 </head>
 
