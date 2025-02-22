@@ -442,55 +442,37 @@ article {
     max-height: 500px;
     overflow: hidden;
 }
-.user-container {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+.show {
+    display: block;
 }
-
-/* styles.css */
+#login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background-color: #16a414;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 .user-profile {
-  position: relative;
-  display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    display: none; /* Escondido inicialmente */
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
-
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
-
-.profile-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.profile-pic-large {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.profile-menu p {
-  margin: 10px 0;
-}
-
-#logoutBtn {
-  background-color: #16a414;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#logoutBtn:hover {
-  background-color: #16a414;
+    #user-profile:hover .dropdown-menu {
+    display: block;
 }
