@@ -58,7 +58,7 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
 
 `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=identify`;
 
-            window.location.href = authUrl;
+                                                                             window.location.href = authUrl;
         });
 
         window.addEventListener("load", function() {
