@@ -38,20 +38,18 @@
             border-radius: 50%;
             cursor: pointer;
         }
-/* Dropdown Menu */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
 
-/* Show dropdown menu */
-.show {
-    display: block;
-}
+        .show {
+          display: block;
+        }
         #login-section {
             position: absolute;
             top: 10px;
@@ -73,11 +71,6 @@
             text-align: center;
             display: none; /* Escondido inicialmente */
         }
-
-        .dropdown-menu {
-            display: none;
-        }
-
         #user-profile:hover .dropdown-menu {
             display: block;
         }
@@ -95,6 +88,7 @@
             <p id="user-name">Nome do Usuário</p>
             <button id="logout-button">Logout</button>
         </div>
+       </div>
     
 <header class="section">
   <div class="logo container">
@@ -275,13 +269,13 @@
     }
 });
 
-        document.getElementById("login-button").addEventListener("click", function(event){
-            event.preventDefault(); // Impede o recarregamento da página
+    document.getElementById("login-button").addEventListener("click", function(event){
+      event.preventDefault(); // Impede o recarregamento da página
             // Esconde o botão de login
-            document.getElementById("login-section").style.display = "none";
+    document.getElementById("login-section").style.display = "none";
             // Exibe a seção do perfil do usuário
-            document.getElementById("user-profile").style.display = "block";
-        });
+    document.getElementById("user-profile").style.display = "block";
+});
 </script>
 </body>
 
