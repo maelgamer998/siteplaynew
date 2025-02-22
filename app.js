@@ -1,52 +1,35 @@
-document.getElementById('login-button').addEventListener('click', function() {
-    // Redireciona o usuário para a página de login do Discord
-    const clientId = '1340759181157732373';
-    const redirectUri = encodeURIComponent('https://maelgamer998.github.io/siteplaynew/index.html');
-    window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=identify`;
-});
+        const CLIENT_ID = '1340759181157732373';
+        const REDIRECT_URI = 'https://maelgamer998.github.io/siteplaynew/index.html';
+        const AUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify`;
 
-window.onload = function() {
-    // Verifica se há um token de acesso no URL (depois do redirecionamento do Discord)
-    const hash = window.location.hash;
-    if (hash) {
-        const params = new URLSearchParams(hash.substring(1));
-        const accessToken = params.get('access_token');
-        if (accessToken) {
-            fetch('https://discord.com/api/users/@me', {
-                headers: {
-                    'Authorization': `Bearer ${accessToken}`
-                }
-            })
-            .then(response => response.json())
-            .then(user => {
-                localStorage.setItem('discord_user', JSON.stringify(user));
-                showUserProfile(user);
-            });
-        }
-    }
+        document.getElementById('login-button').onclick = function() {
+            window.location.href = AUTH_URL;
+        };
 
-    // Verifica se há dados do usuário no armazenamento local
-    const storedUser = localStorage.getItem('discord_user');
-    if (storedUser) {
-        const user = JSON.parse(storedUser);
-        showUserProfile(user);
-    }
-};
+        window.onload = function() {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
 
-function showUserProfile(user) {
-    document.getElementById('login-section').style.display = 'none';
-    const userProfile = document.getElementById('user-profile');
-    userProfile.style.display = 'block';
-    const avatar = document.getElementById('user-avatar');
-    avatar.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-    avatar.addEventListener('click', function() {
-        const dropdownMenu = document.getElementById('dropdown-menu');
-        dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
-        document.getElementById('dropdown-avatar').src = avatar.src;
-        document.getElementById('user-name').textContent = user.username;
-    });
-    document.getElementById('logout-button').addEventListener('click', function() {
-        localStorage.removeItem('discord_user');
-        location.reload();
-    });
-}
+            if (params.has('access_token')) {
+                const accessToken = params.get('access_token');
+                fetch('https://discord.com/api/users/@me', {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('login-section').style.display = 'none';
+                    document.getElementById('user-avatar').src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
+                    document.getElementById('user-name').innerText = data.username;
+                    document.getElementById('user-profile').style.display = 'block';
+                })
+                .catch(error => console.error('Error fetching user data:', error));
+            }
+        };
+
+        document.getElementById('logout-button').onclick = function() {
+            document.getElementById('user-profile').style.display = 'none';
+            document.getElementById('login-section').style.display = 'block';
+            window.location.hash = '';
+        };
