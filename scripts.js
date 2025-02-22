@@ -44,7 +44,13 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
         });
     }
 });
-
+        document.getElementById("login-button").addEventListener("click", function(event){
+          event.preventDefault(); // Impede o recarregamento da página
+            // Esconde o botão de login
+        document.getElementById("login-section").style.display = "none";
+            // Exibe a seção do perfil do usuário
+        document.getElementById("user-profile").style.display = "block";
+        }
         document.getElementById("login-button").addEventListener("click", function(){
             const clientId = '1340759181157732373';
             const redirectUri = 'https://maelgamer998.github.io/siteplaynew/index.html';
@@ -94,10 +100,4 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
             document.getElementById("user-profile").style.display = "none";
         });
 
-        document.getElementById("login-button").addEventListener("click", function(event){
-          event.preventDefault(); // Impede o recarregamento da página
-            // Esconde o botão de login
-        document.getElementById("login-section").style.display = "none";
-            // Exibe a seção do perfil do usuário
-        document.getElementById("user-profile").style.display = "block";
-        }
+
