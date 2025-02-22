@@ -85,7 +85,13 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
         document.getElementById("user-avatar").addEventListener("click", function() {
             const dropdownMenu = document.getElementById("dropdown-menu");
             dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-        });
+
+            // Ajusta a posição do dropdown se estiver fora da tela
+            const rect = dropdownMenu.getBoundingClientRect();
+            if (rect.right > window.innerWidth) {
+                dropdownMenu.style.left = "auto";
+                dropdownMenu.style.right = "0";
+            }
 
         document.getElementById("logout-button").addEventListener("click", function(){
             localStorage.removeItem("access_token");
