@@ -44,13 +44,7 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
         });
     }
 });
-    document.getElementById("login-button").addEventListener("click", function(event){
-      event.preventDefault(); // Impede o recarregamento da página
-            // Esconde o botão de login
-    document.getElementById("login-section").style.display = "none";
-            // Exibe a seção do perfil do usuário
-    document.getElementById("user-profile").style.display = "block";
-});
+
         document.getElementById("login-button").addEventListener("click", function(){
             const clientId = '1340759181157732373';
             const redirectUri = 'https://maelgamer998.github.io/siteplaynew/index.html';
@@ -86,10 +80,24 @@ $.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(d
         document.getElementById("user-avatar").addEventListener("click", function() {
             const dropdownMenu = document.getElementById("dropdown-menu");
             dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+            
+            // Ajusta a posição do dropdown se estiver fora da tela
+            const rect = dropdownMenu.getBoundingClientRect();
+            if (rect.right > window.innerWidth) {
+                dropdownMenu.style.right = '10px'; // Ajuste conforme necessário
+            }
         });
 
         document.getElementById("logout-button").addEventListener("click", function(){
             localStorage.removeItem("access_token");
             document.getElementById("login-section").style.display = "block";
             document.getElementById("user-profile").style.display = "none";
+        });
+    document.getElementById("login-button").addEventListener("click", function(event){
+      event.preventDefault(); // Impede o recarregamento da página
+            // Esconde o botão de login
+    document.getElementById("login-section").style.display = "none";
+            // Exibe a seção do perfil do usuário
+    document.getElementById("user-profile").style.display = "block";
+           }
         });
