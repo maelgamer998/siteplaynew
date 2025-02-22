@@ -21,7 +21,7 @@ ip.addEventListener('click', function () {
 //
 //  STATUS DO SERVIDOR
 //
-$.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/25565', function(data) {
+$.getJSON('https://api.minetools.eu/ping/' + ip.innerText + '/28254', function(data) {
   if (data.error) {
     $('#status').html('<i class="fas fa-times"></i> Servidor offline');
     $('#motd').html('-');
