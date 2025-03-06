@@ -79,10 +79,37 @@
 #user-avatar, #dropdown-avatar {
     border-radius: 50%; /* Torna a imagem redonda */
 }
+        /* Estilo do botão flutuante */
+        .discord-help-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #7289da;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+        }
 
+        .discord-help-button:hover {
+            background-color: #5a6fbf;
+        }
+
+        .discord-help-button:focus {
+            outline: none;
+        }
   </style>
 </head>
 <body>
+      </div>
+
+    <!-- Botão flutuante de ajuda do Discord -->
+    <button class="discord-help-button" onclick="window.location.href='https://discord.gg/ehBxGJ9ta9'">
+    </button>
     <div id="login-section">
         <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
     </div>
