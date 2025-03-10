@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fontawesome.com/">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>PlayNew - Store 💰</title>
+  <style>
+      .logo {
+          width: auto;
+          animation: pulse 7s infinite;
+      }
+      @keyframes pulse {
+          100% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.2);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+      .discord-widget {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          border: 0;
+          font-size: 2px;
+        }
+#login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background-color: #554754;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile {
+    text-align: right;
+    position: relative; /* Adicionei esta linha */
+    display: none; /* Escondido inicialmente */
+    height: auto;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px; 
+    left: auto; 
+    background: rgba(44, 44, 44, 0.5);
+    z-index: 9999;
+    text-align: center;
+    font-family: Minecraft, Arial, Sans-serif;
+    width: auto; /* Ajusta a largura automaticamente ao conteúdo */
+    height: auto; /* Ajusta a altura automaticamente ao conteúdo */
+    padding: 10px; /* Adicione um padding para espaço interno */
+    box-sizing: border-box; /* Inclui padding e borda na largura e altura totais */
+    max-width: 70px;
+    font-weight: normal;
+}
+
+#user-avatar {
+    cursor: pointer; /* Adicionei esta linha para mostrar que é clicável */
+}
+
+#user-avatar, #dropdown-avatar {
+    border-radius: 50%; /* Torna a imagem redonda */
+}
+        /* Estilo do botão flutuante */
+        .discord-help-button {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(44, 44, 44, 1);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+        }
+
+        .discord-help-button:hover {
+            background-color: (44, 44, 44, 1);
+        }
+
+        .discord-help-button:focus {
+            outline: none;
+        }
+  </style>
+</head>
+<body>
+      </div>
+
+    <!-- Botão flutuante de ajuda do Discord -->
+    <button class="discord-help-button" onclick="window.location.href='https://discord.gg/ehBxGJ9ta9'">
+      <img src="https://cdn.discordapp.com/icons/718587008179634186/52ff93c60de67ef0746890934f151021.png?size=2048" alt="Discord Server Icon" width="60" height="60">
+    </button>
+    <div id="login-section">
+        <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
+    </div>
+    <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+        <div id="dropdown-menu" class="dropdown-menu">
+            <img id="dropdown-avatar" src="" alt="Dropdown Avatar" width="50" height="50">
+            <p class="cor-f">Bem vindo!</p>
+            <p id="user-name" class="cor-f">Nome do Usuário</p>
+
+            <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
+        </div>
+    </div>
+</body>
+<body>
+<header class="section">
+  <div class="logo container">
+    <a href="index.html">
+      <img src="logo.png">
+    </a>
+  </div>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-burger burger">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html" class="navbar-item"><i class="fas fa-home"></i> Início</a>
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a href="loja.html" class="navbar-link"><i class="fas fa-shopping-cart"></i> Loja</a>
+            <div class="navbar-dropdown">
+              <a href="loja.html#vip" class="navbar-item"><i class="fas fa-gem"></i> VIPs</a>
+              <a href="loja.html#unban" class="navbar-item"><i class="fas fa-ban"></i> Unban</a>
+              <hr class="navbar-divider">
+              <a href="termos.html" class="navbar-item">Informações importantes</a>
+            </div>
+          </div>
+          <a href="regras.html" class="navbar-item"><i class="fas fa-book"></i> Regras</a>
+          <a href="votar.html" class="navbar-item"><i class="fas fa-vote-yea"></i> Votar</a>
+          <a href="equipe.html" class="navbar-item"><i class="fas fa-users"></i> Equipe</a>
+          <a href="plugin.html" class="navbar-item"><i class="fa-solid fa-download"></i>  Plugin</a>
+          <a href="https://discord.gg/ehBxGJ9ta9" class="navbar-item"><i class="fab fa-discord"></i> Discord</a>
+        </div>
+
+        <div class="navbar-end">
+          <a id="ip" class="navbar-item">
+            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+            <textarea></textarea>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+
+<main class="section">
+  <div class="container">
+    <article id="vip" class="article">
+      <h1 class="article-title"><i class="fas fa-gem"></i> Adquira seu VIP!</h1>
+      <div class="article-content">
+        <ul class="produtos">
+          <li>
+            <img src="vip.png">
+            <h1>VIP</h1>
+            <h2>R$10,00<small>/mês</small></h2>
+            <div class="buttons is-centered">
+              <a href="vip.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="https://www.mercadopago.com.br/checkout/v1/payment/redirect/bb61b5bc-e6ab-4d11-b246-2ff32036e48c/payment-option-form-v2/?source=link&preference-id=160809762-3a5be623-80de-452c-bf46-c80af127e3bf&router-request-id=9790e9da-7e23-4ec0-9454-4e7b4bcca058&p=ee89104fbe6c48abbeddf443c004f55d" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img src="vip_plus.png">
+            <h1>VIP PLUS</h1>
+            <h2>R$20,00<small>/mês</small></h2>
+            <div class="buttons is-centered">
+              <a href="vip_plus.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="https://www.mercadopago.com.br/checkout/v1/payment/redirect/0b0cab33-c382-48aa-a567-d49b4f51ec8f/payment-option-form-v2/?source=link&preference-id=160809762-18861cf6-3f97-4533-bb92-3601824d86a3&router-request-id=a966ff63-0691-4475-a908-1c87b3a3682a&p=ee89104fbe6c48abbeddf443c004f55d" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img src="vip_pro.png">
+            <h1>VIP PRO</h1>
+            <h2>R$30,00<small>/mês</small></h2>
+            <div class="buttons is-centered">
+              <a href="vip_pro.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="https://www.mercadopago.com.br/checkout/v1/payment/redirect/825fa3c6-8ef4-415d-b21b-d9a754548d6b/payment-option-form-v2/?source=link&preference-id=160809762-af673806-4eae-4ba2-9621-0bc1f877c820&router-request-id=c1aac4e9-c66d-41b1-bd18-9631bd81250b&p=ee89104fbe6c48abbeddf443c004f55d" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <article id="unban" class="article">
+      <h1 class="article-title"><i class="fas fa-ban"></i> Adquira seu desbanimento!</h1>
+      <div class="article-content">
+        <ul class="produtos">
+          <li>
+            <img src="unban.png">
+            <h1>Unban</h1>
+            <h2>R$15,00</h2>
+            <div class="buttons is-centered">
+              <a href="unban.html" class="button is-primary">
+                <span class="icon is-small"><i class="fas fa-eye"></i></span>
+              </a>
+              <a href="unban.html" class="button is-success">
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <span>Comprar</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="section">
+  <div class="container">
+    <article class="footer">
+      <span>&copy; PlayNew <script>document.write(new Date().getFullYear())</script>. Todos os direitos reservados.</span>
+      <a href="https://github.com/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
+    </article>
+  </div>
+</footer>    
+<script>
+        async function verificarServidor() {
+            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
+            const url = `https://api.mcsrvstat.us/2/${ip}`;
+
+            try {
+                const resposta = await fetch(url);
+                const dados = await resposta.json();
+
+                // Verifica se o servidor está online
+                if (dados.online) {
+                    document.getElementById("status").innerHTML = " ✔️ Servidor Online";
+                    document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
+                    document.getElementById("playersOnline").textContent = data.players.online + " jogadores online";
+                    
+                    // Obtém o MOTD formatado corretamente
+                    const motd = dados.motd.clean.join(" "); // Converte array em texto
+                    document.getElementById("motd").innerHTML = motd;
+                } else {
+                    document.getElementById("status").innerHTML = "❌ Servidor Offline";
+                    document.getElementById("players").innerHTML = "❌";
+                    document.getElementById("motd").innerHTML = "❌";
+                    document.getElementById("playersOnline").textContent = "Sem Players Online;
+                }
+            } catch (error) {
+                document.getElementById("status").innerHTML = "--";
+                document.getElementById("players").innerHTML = "--";
+                document.getElementById("motd").innerHTML = "--";
+                document.getElementById("playersOnline").textContent = "🫤 Erro ao carregar";
+                console.error("Erro ao obter status do servidor:", error);
+              
+            }
+        }
+
+        verificarServidor();
+        setInterval(verificarServidor, 100000); // Atualiza a cada 10 segundos
+    </script>
+
+    <script>
+        function copiarTexto() {
+            var inputTexto = document.getElementById("jogar.playnew.site");
+            inputTexto.select();
+            inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+            document.execCommand("copy");
+
+            alert("Texto copiado: " + inputTexto.value);
+        }
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var burger = document.querySelector(".navbar-burger");
+    var menu = document.querySelector(".navbar-menu");
+
+    if (burger && menu) {
+        burger.addEventListener("click", function () {
+            burger.classList.toggle("is-active");
+            menu.classList.toggle("is-active");
+        });
+    }
+});
+</script>
+
+</body>
+
+</html>

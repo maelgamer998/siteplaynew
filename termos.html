@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fontawesome.com/">
+  <meta name="viewport" content="width=device-width, initial-scale=0.7">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>PlayNew - Termos 📋</title><!DOCTYPE html>
+  <style>
+      .logo {
+          width: auto;
+          animation: pulse 7s infinite;
+      }
+      @keyframes pulse {
+          100% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.2);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+      .discord-widget {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          border: 0;
+          font-size: 2px;
+        }
+#login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background-color: #554754;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile {
+    text-align: right;
+    position: relative; /* Adicionei esta linha */
+    display: none; /* Escondido inicialmente */
+    height: auto;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px; 
+    left: auto; 
+    background: rgba(44, 44, 44, 0.5);
+    z-index: 9999;
+    text-align: center;
+    font-family: Minecraft, Arial, Sans-serif;
+    width: auto; /* Ajusta a largura automaticamente ao conteúdo */
+    height: auto; /* Ajusta a altura automaticamente ao conteúdo */
+    padding: 10px; /* Adicione um padding para espaço interno */
+    box-sizing: border-box; /* Inclui padding e borda na largura e altura totais */
+    max-width: 70px;
+    font-weight: normal;
+}
+
+#user-avatar {
+    cursor: pointer; /* Adicionei esta linha para mostrar que é clicável */
+}
+
+#user-avatar, #dropdown-avatar {
+    border-radius: 50%; /* Torna a imagem redonda */
+}
+        /* Estilo do botão flutuante */
+        .discord-help-button {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(44, 44, 44, 1);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+        }
+
+        .discord-help-button:hover {
+            background-color: (44, 44, 44, 1);
+        }
+
+        .discord-help-button:focus {
+            outline: none;
+        }
+  </style>
+</head>
+<body>
+      </div>
+
+    <!-- Botão flutuante de ajuda do Discord -->
+    <button class="discord-help-button" onclick="window.location.href='https://discord.gg/ehBxGJ9ta9'">
+      <img src="https://cdn.discordapp.com/icons/718587008179634186/52ff93c60de67ef0746890934f151021.png?size=2048" alt="Discord Server Icon" width="60" height="60">
+    </button>
+    <div id="login-section">
+        <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
+    </div>
+    <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+        <div id="dropdown-menu" class="dropdown-menu">
+            <img id="dropdown-avatar" src="" alt="Dropdown Avatar" width="50" height="50">
+            <p class="cor-f">Bem vindo!</p>
+            <p id="user-name" class="cor-f">Nome do Usuário</p>
+
+            <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
+        </div>
+    </div>
+</body>
+<body>
+<header class="section">
+  <div class="logo container">
+    <a href="index.html">
+      <img src="logo.png">
+    </a>
+  </div>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-burger burger">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html" class="navbar-item"><i class="fas fa-home"></i> Início</a>
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a href="loja.html" class="navbar-link"><i class="fas fa-shopping-cart"></i> Loja</a>
+            <div class="navbar-dropdown">
+              <a href="loja.html#vip" class="navbar-item"><i class="fas fa-gem"></i> VIPs</a>
+              <a href="loja.html#unban" class="navbar-item"><i class="fas fa-ban"></i> Unban</a>
+              <hr class="navbar-divider">
+              <a href="termos.html" class="navbar-item">Informações importantes</a>
+            </div>
+          </div>
+          <a href="regras.html" class="navbar-item"><i class="fas fa-book"></i> Regras</a>
+          <a href="votar.html" class="navbar-item"><i class="fas fa-vote-yea"></i> Votar</a>
+          <a href="equipe.html" class="navbar-item"><i class="fas fa-users"></i> Equipe</a>
+          <a href="plugin.html" class="navbar-item"><i class="fa-solid fa-download"></i>  Plugin</a>
+          <a href="https://discord.gg/ehBxGJ9ta9" class="navbar-item"><i class="fab fa-discord"></i> Discord</a>
+        </div>
+
+        <div class="navbar-end">
+          <a id="ip" class="navbar-item">
+            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+            <textarea></textarea>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<main class="section">
+  <div class="container">
+    <article class="article">
+      <h1 class="article-title"><i class="fas fa-scroll"></i> Termos de Uso</h1>
+      <div class="article-content">
+        <p>Caro(a) jogador(a),
+
+		<p>Agradecemos por escolher o <b>PlayNew</b> como seu servidor de Minecraft. Para garantir uma experiência positiva e justa para todos os jogadores, apresentamos nossos termos de uso. Ao jogar em nosso servidor, você concorda com os seguintes termos:
+		<br><br>
+		<p class="cor-9"><b>1. Comportamento Respeitoso:</b>
+		<p>Trate outros jogadores com respeito e cortesia.
+		<p>Não faça bullying, assédio ou use linguagem ofensiva.
+		<p>Respeite as regras do chat e evite spam.
+		<br><br>
+		<p class="cor-9"><b>2. Proibido Uso de Hacks e Cheats:</b>
+		<p>Não use mods, hacks ou cheats que proporcionem vantagens injustas.
+		<p>Qualquer forma de trapaça resultará em punição.
+		<br><br>
+		<p class="cor-9"><b>3. Proteção de Propriedade:</b>
+		<p>Respeite as construções e propriedades de outros jogadores.
+		<p>Não destrua, roube ou invada áreas protegidas.
+		<br><br>
+		<p class="cor-9"><b>4. Conteúdo Inadequado:</b>
+		<p>Não compartilhe conteúdo inadequado, ofensivo ou ilegal no chat ou em qualquer lugar do servidor.
+		<p>Isso inclui linguagem imprópria, imagens ofensivas e discurso de ódio.
+		<br><br>
+		<p class="cor-9"><b>5. Reembolsos e Itens Perdidos:</b>
+		<p>Não oferecemos reembolso por itens perdidos devido a erros, desconexões ou outros problemas.
+		<p>Proteja seus itens e mantenha backups regularmente.
+		<br><br>
+		<p class="cor-9"><b>6. Colaboração e Diversão:</b>
+		<p>Colabore com outros jogadores e participe de eventos e atividades.
+		<p>Divirta-se, explore o mundo e crie memórias incríveis!
+		<br><br>
+		<p class="cor-9"><b>7. Denúncias e Suporte:</b>
+		<p>Se encontrar comportamento inadequado ou violações dos termos, denuncie aos moderadores.
+		<p>Para suporte, entre em contato com nossa equipe através do nosso Discord, basta abrir um ticket e aguardar que em breve responderemos.
+		<br><br>
+		<p>Lembramos que o não cumprimento desses termos pode resultar em advertências, suspensões temporárias ou até mesmo banimento permanente. Juntos, podemos manter o <b>PlayNew</b> um lugar divertido e acolhedor para todos.
+
+		<p>Atenciosamente, Equipe PlayNew.
+      </div>
+    </article>
+  </div>
+</main>
+<main class="section">
+  <div class="container">
+    <article class="article">
+      <h1 class="article-title"><i class="fas fa-scroll"></i> Politica de Reembolso</h1>
+      <div class="article-content">
+		<p>
+          Caro(a) cliente,
+
+		<p>Agradecemos por escolher o servidor <b>PlayNew</b> para sua experiência no mundo do Minecraft.
+		<p>Entendemos a importância de uma política de reembolso clara e transparente para garantir a satisfação de nossos jogadores.
+		<p>Abaixo, apresentamos nossa política de reembolso específica para o servidor <b>PlayNew</b>:
+		<br><br>
+		<p class="cor-9"><b>1. Reembolso de Itens Virtuais:</b>
+		<p>Itens virtuais adquiridos no <b>PlayNew</b> não são reembolsáveis. Certifique-se de escolher cuidadosamente antes de fazer uma compra.
+		<br><br>
+		<p class="cor-9"><b>2. Reembolso por Problemas Técnicos:</b>
+		<p>Se você encontrar problemas técnicos ou erros no servidor, entre em contato com nossa equipe de suporte. Faremos o possível para resolver qualquer problema e garantir sua satisfação.
+		<br><br>
+		<p class="cor-9"><b>3. Processo de Solicitação de Reembolso:</b>
+		<p>Para solicitar um reembolso, abre um ticket em nossa canal no Discord com as seguintes informações:
+		<p>Seu nome de usuário no servidor.
+		<p>Detalhes da compra (data, item adquirido, valor).
+		<p>Razão específica para o reembolso.
+		<p>Analisaremos cada solicitação individualmente e responderemos o mais rápido possível.
+		<br><br>
+		<p class="cor-9"><b>4. Contato com o Suporte:</b>
+		<p>Se preferir, entre em contato com nosso suporte técnico diretamente pelo chat ou abre um ticket em nosso Discord.
+
+		<p>Esperamos que você aproveite sua jornada no <b>PlayNew</b> estamos à disposição para ajudá-lo(a) em qualquer momento.
+		<br><br>
+		<p>Atenciosamente, Equipe PlayNew.
+        </p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="section">
+  <div class="container">
+    <article class="footer">
+      <span>&copy; PlayNew <script>document.write(new Date().getFullYear())</script>. Todos os direitos reservados.</span>
+      <a href="https://github.com/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
+    </article>
+  </div>
+</footer>    <script>
+        async function verificarServidor() {
+            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
+            const url = `https://api.mcsrvstat.us/2/${ip}`;
+
+            try {
+                const resposta = await fetch(url);
+                const dados = await resposta.json();
+
+                // Verifica se o servidor está online
+                if (dados.online) {
+                    document.getElementById("status").innerHTML =</i> " Servidor ONLINE";
+                    document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
+                    
+                    // Obtém o MOTD formatado corretamente
+                    const motd = dados.motd.clean.join(" "); // Converte array em texto
+                    document.getElementById("motd").innerHTML = motd;
+                } else {
+                    document.getElementById("status").innerHTML = "❌ Servidor OFFLINE";
+                    document.getElementById("players").innerHTML = "--";
+                    document.getElementById("motd").innerHTML = "--";
+                }
+            } catch (error) {
+                document.getElementById("status").innerHTML = "Erro ao obter informações";
+                document.getElementById("players").innerHTML = "--";
+                document.getElementById("motd").innerHTML = "--";
+                console.error("Erro:", error);
+            }
+        }
+
+        verificarServidor();
+        setInterval(verificarServidor, 10000); // Atualiza a cada 10 segundos
+    </script>
+
+    <script>
+        function copiarTexto() {
+            var inputTexto = document.getElementById("jogar.playnew.site:28254");
+            inputTexto.select();
+            inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+            document.execCommand("copy");
+
+            alert("Texto copiado: " + inputTexto.value);
+        }
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+<script src="auth.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var burger = document.querySelector(".navbar-burger");
+    var menu = document.querySelector(".navbar-menu");
+
+    if (burger && menu) {
+        burger.addEventListener("click", function () {
+            burger.classList.toggle("is-active");
+            menu.classList.toggle("is-active");
+        });
+    }
+});
+</script>
+</body>
+
+</html>

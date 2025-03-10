@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fontawesome.com/">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>PlayNew - Equipe</title>
+  <style>
+    .footer {
+      font-family: 'Minecraft', sans-serif;
+      font-weight: normal;
+    }
+    .popup-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup {
+      background: rgba(59, 98, 39, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 400px; /* Define um tamanho máximo para o popup */
+      text-align: center;
+      position: relative;
+    }
+
+    .popup p {
+      font-family: 'Minecraft', sans-serif;
+      color: white;
+      font-size: 12px;
+      white-space: pre-line;
+      font-weight: normal; /* Remove o negrito */
+    }
+    .popup h1 {
+      font-family: 'Minecraft', sans-serif;
+      color: white;
+      font-size: 18px;
+      white-space: pre-line;
+      font-weight: normal; /* Remove o negrito */
+    }
+
+    .close-btn {
+      position: relative; /* Remove a posição absoluta */
+      display: block;
+      margin: 20px auto 0; /* Adiciona um espaçamento acima */
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #16a414;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Minecraft', sans-serif;
+    }
+
+    .close-btn:hover {
+      background-color: #10660f;
+    }
+
+      .logo {
+          width: auto;
+          animation: pulse 7s infinite;
+      }
+      @keyframes pulse {
+          100% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.2);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+      .discord-widget {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          border: 0;
+          font-size: 2px;
+        }
+#login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background-color: #554754;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile {
+    text-align: right;
+    position: relative; /* Adicionei esta linha */
+    display: none; /* Escondido inicialmente */
+    height: auto;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px; 
+    left: auto; 
+    background: rgba(44, 44, 44, 0.5);
+    z-index: 9999;
+    text-align: center;
+    font-family: Minecraft, Arial, Sans-serif;
+    width: auto; /* Ajusta a largura automaticamente ao conteúdo */
+    height: auto; /* Ajusta a altura automaticamente ao conteúdo */
+    padding: 10px; /* Adicione um padding para espaço interno */
+    box-sizing: border-box; /* Inclui padding e borda na largura e altura totais */
+    max-width: 70px;
+    font-weight: normal;
+}
+
+#user-avatar {
+    cursor: pointer; /* Adicionei esta linha para mostrar que é clicável */
+}
+
+#user-avatar, #dropdown-avatar {
+    border-radius: 50%; /* Torna a imagem redonda */
+}
+        /* Estilo do botão flutuante */
+        .discord-help-button {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(44, 44, 44, 1);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+        }
+
+        .discord-help-button:hover {
+            background-color: (44, 44, 44, 1);
+        }
+
+        .discord-help-button:focus {
+            outline: none;
+        }
+  </style>
+</head>
+<body>
+      </div>
+
+    <!-- Botão flutuante de ajuda do Discord -->
+    <button class="discord-help-button" onclick="window.location.href='https://discord.gg/ehBxGJ9ta9'">
+      <img src="https://cdn.discordapp.com/icons/718587008179634186/52ff93c60de67ef0746890934f151021.png?size=2048" alt="Discord Server Icon" width="60" height="60">
+    </button>
+    <div id="login-section">
+        <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
+    </div>
+    <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+        <div id="dropdown-menu" class="dropdown-menu">
+            <img id="dropdown-avatar" src="" alt="Dropdown Avatar" width="50" height="50">
+            <p class="cor-f">Bem vindo!</p>
+            <p id="user-name" class="cor-f">Nome do Usuário</p>
+
+            <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
+        </div>
+    </div>
+</body>
+<body>
+
+<header class="section">
+  <div class="logo container">
+    <a href="index.html">
+      <img src="logo.png">
+    </a>
+  </div>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-burger burger">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html" class="navbar-item"><i class="fas fa-home"></i> Início</a>
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a href="loja.html" class="navbar-link"><i class="fas fa-shopping-cart"></i> Loja</a>
+            <div class="navbar-dropdown">
+              <a href="loja.html#vip" class="navbar-item"><i class="fas fa-gem"></i> VIPs</a>
+              <a href="loja.html#unban" class="navbar-item"><i class="fas fa-ban"></i> Unban</a>
+              <hr class="navbar-divider">
+              <a href="termos.html" class="navbar-item">Informações importantes</a>
+            </div>
+          </div>
+          <a href="regras.html" class="navbar-item"><i class="fas fa-book"></i> Regras</a>
+          <a href="votar.html" class="navbar-item"><i class="fas fa-vote-yea"></i> Votar</a>
+          <a href="equipe.html" class="navbar-item"><i class="fas fa-users"></i> Equipe</a>
+          <a href="plugin.html" class="navbar-item"><i class="fa-solid fa-download"></i> Plugin</a>
+          <a href="https://discord.gg/ehBxGJ9ta9" class="navbar-item"><i class="fab fa-discord"></i> Discord</a>
+        </div>
+
+        <div class="navbar-end">
+	   <div class="navbar-item">
+	     <div id="ip-section">
+               <a id="ip" class="navbar-item">
+               <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+               <textarea></textarea>
+               </a>
+              </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+<div class="popup-container" id="popupContainer" onclick="closePopup(event)">
+    <div class="popup" onclick="event.stopPropagation()">
+	    <h1 id="popupName"></h1>
+	    <p id="popupText"></p>
+        <button class="close-btn" onclick="closePopup(event)">Fechar</button>
+    </div>
+</div>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <article class="article">
+          <h1 class="article-title"><i class="fas fa-chess-king"></i> Dono</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('MrFelipeR','É conhecido como o Dono do servidor.\nsempre com seu jeito sério!\nEle faz lives entao já sabe segue ele lá. 😁')">
+                <img src="https://cravatar.eu/helmhead/MrFelipeR" alt="MrFelipeR">
+                <h1>MrFelipeR</h1>
+                <h2 class="cor-c">Dono</h2>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article">
+          <h1 class="article-title"><i class="fa fa-shield-alt"></i> Administradores</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('nob557509','É conhecido como o Nob.\nEle é o braço direito do Felipe e um cara muito bacana.\nEle também faz Lives então segue ele também. 🤗')">
+                <img src="https://cravatar.eu/helmhead/nob557509" alt="nob557509">
+                <h1>nob557509</h1>
+                <h2 class="cor-6">Administrador</h2>
+                </div>
+              </li>
+              <li>
+                <div class="membro" onclick="openPopup('lord_heith','É conhecido como o Lord.\nEsse cara parece que tem um enciclopedia no cerebro heheh\ncara super inteligente e super gente boa e um ótimo adm. 👏')">
+                <img src="https://cravatar.eu/helmhead/lord_heith" alt="lord_heith">
+                <h1>LordHeith</h1>
+                <h2 class="cor-6">Administrador</h2>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article">
+          <h1 class="article-title"><i class="fa fa-user"></i> Desenvolvedores</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('MaeLGamer998','É conhecido como o Mael.\nEle é o cara por trás dos códigos\nSsempre ajudando quem precisa, é super gente boa e querido com todos')">
+                <img src="https://cravatar.eu/helmhead/maelgamer998" alt="maelgamer998">
+                <h1>MaeLGamer998</h1>
+                <h2 class="cor-5">Desenvolvedor</h2>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="article">
+          <h1 class="article-title"><i class="fa fa-hands-helping"></i> Ajudantes</h1>
+          <div class="article-content">
+            <ul class="equipe">
+              <li>
+                <div class="membro" onclick="openPopup('A definir!')">
+                <img src="https://cravatar.eu/helmhead/Ajudante" alt="Ajudante">
+                <h1>A definir!</h1>
+                <h2 class="cor-2">Ajudante</h2>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="section">
+  <div class="container">
+    <article class="footer">
+      <span>&copy; PlayNew <script>document.write(new Date().getFullYear())</script>. Todos os direitos reservados.</span>
+      <a href="https://github.com/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
+    </article>
+  </div>
+</footer>    
+<script>
+        async function verificarServidor() {
+            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
+            const url = `https://api.mcsrvstat.us/2/${ip}`;
+
+            try {
+                const resposta = await fetch(url);
+                const dados = await resposta.json();
+
+                // Verifica se o servidor está online
+                if (dados.online) {
+                    document.getElementById("status").innerHTML = " ✔️ Servidor Online";
+                    document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
+                    document.getElementById("playersOnline").textContent = data.players.online + " jogadores online";
+                    
+                    // Obtém o MOTD formatado corretamente
+                    const motd = dados.motd.clean.join(" "); // Converte array em texto
+                    document.getElementById("motd").innerHTML = motd;
+                } else {
+                    document.getElementById("status").innerHTML = "❌ Servidor Offline";
+                    document.getElementById("players").innerHTML = "❌";
+                    document.getElementById("motd").innerHTML = "❌";
+                    document.getElementById("playersOnline").textContent = "Servidor Offline";
+                }
+            } catch (error) {
+                document.getElementById("status").innerHTML = "⛔ Erro ao obter informações";
+                document.getElementById("players").innerHTML = "--";
+                document.getElementById("motd").innerHTML = "--";
+                document.getElementById("playersOnline").textContent = "🫤 Erro ao carregar";
+                console.error("Erro ao obter status do servidor:", error);
+              
+            }
+        }
+
+        verificarServidor();
+        setInterval(verificarServidor, 100000); // Atualiza a cada 10 segundos
+    </script>
+<script>
+function openPopup(name,text) {
+    document.getElementById('popupName').innerText = name;
+    document.getElementById('popupText').innerText = text;
+
+    let popupContainer = document.getElementById('popupContainer');
+    popupContainer.style.display = 'flex';
+}
+
+function closePopup(event) {
+    let popupContainer = document.getElementById('popupContainer');
+    if (event.target.id === 'popupContainer' || event.target.classList.contains('close-btn')) {
+        popupContainer.style.display = 'none';
+    }
+}
+
+
+</script>
+    <script>
+        function copiarTexto() {
+            var inputTexto = document.getElementById("jogar.playnew.site");
+            inputTexto.select();
+            inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+            document.execCommand("copy");
+
+            alert("Texto copiado: " + inputTexto.value);
+        }
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var burger = document.querySelector(".navbar-burger");
+    var menu = document.querySelector(".navbar-menu");
+
+    if (burger && menu) {
+        burger.addEventListener("click", function () {
+            burger.classList.toggle("is-active");
+            menu.classList.toggle("is-active");
+        });
+    }
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fontawesome.com/">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <title>PlayNew - Home 🏠</title>
+  <style>
+      .logo {
+          width: auto;
+          animation: pulse 7s infinite;
+      }
+      @keyframes pulse {
+          100% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.2);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+      .discord-widget {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          border: 0;
+          font-size: 2px;
+        }
+#login-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#login-button {
+    padding: 10px 20px;
+    background: rgba(44, 44, 44, 1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile {
+    text-align: right;
+    position: relative; /* Adicionei esta linha */
+    display: none; /* Escondido inicialmente */
+    height: auto;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px; 
+    left: auto; 
+    background: rgba(44, 44, 44, 0.5);
+    z-index: 9999;
+    text-align: center;
+    font-family: Minecraft, Arial, Sans-serif;
+    width: auto; /* Ajusta a largura automaticamente ao conteúdo */
+    height: auto; /* Ajusta a altura automaticamente ao conteúdo */
+    padding: 10px; /* Adicione um padding para espaço interno */
+    box-sizing: border-box; /* Inclui padding e borda na largura e altura totais */
+    max-width: 70px;
+    font-weight: normal;
+}
+
+#user-avatar {
+    cursor: pointer; /* Adicionei esta linha para mostrar que é clicável */
+}
+
+#user-avatar, #dropdown-avatar {
+    border-radius: 50%; /* Torna a imagem redonda */
+}
+        /* Estilo do botão flutuante */
+        .discord-help-button {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(44, 44, 44, 1);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+        }
+
+        .discord-help-button:hover {
+            background-color: (44, 44, 44, 1);
+        }
+
+        .discord-help-button:focus {
+            outline: none;
+        }
+  </style>
+</head>
+<body>
+      </div>
+
+    <!-- Botão flutuante de ajuda do Discord -->
+    <button class="discord-help-button" onclick="window.location.href='https://discord.gg/ehBxGJ9ta9'">
+      <img src="https://cdn.discordapp.com/icons/718587008179634186/52ff93c60de67ef0746890934f151021.png?size=2048" alt="Discord Server Icon" width="60" height="60">
+    </button>
+    <div id="login-section">
+        <button id="login-button" class="login-button"><i class="fab fa-discord"></i> Entrar!</button>
+    </div>
+    <div id="user-profile" class="user-profile" style="display: none;">
+        <img id="user-avatar" src="" alt="User Avatar" width="50" height="50">
+        <div id="dropdown-menu" class="dropdown-menu">
+            <img id="dropdown-avatar" src="" alt="Dropdown Avatar" width="50" height="50">
+            <p class="cor-f">Bem vindo!</p>
+            <p id="user-name" class="cor-f">Nome do Usuário</p>
+
+            <button id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair!</button>
+        </div>
+    </div>
+</body>
+<body>
+<header class="section">
+  <div class="logo container">
+    <a href="index.html">
+      <img src="logo.png">
+    </a>
+  </div>
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-burger burger">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html" class="navbar-item"><i class="fas fa-home"></i> Início</a>
+           <div class="navbar-item has-dropdown is-hoverable">
+            <a href="loja.html" class="navbar-link"><i class="fas fa-shopping-cart"></i> Loja</a>
+            <div class="navbar-dropdown">
+              <a href="loja.html#vip" class="navbar-item"><i class="fas fa-gem"></i> VIPs</a>
+              <a href="loja.html#unban" class="navbar-item"><i class="fas fa-ban"></i> Unban</a>
+              <hr class="navbar-divider">
+              <a href="termos.html" class="navbar-item">Informações importantes</a>
+            </div>
+          </div>
+          <a href="regras.html" class="navbar-item"><i class="fas fa-book"></i> Regras</a>
+          <a href="votar.html" class="navbar-item"><i class="fas fa-vote-yea"></i> Votar</a>
+          <a href="equipe.html" class="navbar-item"><i class="fas fa-users"></i> Equipe</a>
+          <a href="plugin.html" class="navbar-item"><i class="fa-solid fa-download"></i>  Plugin</a>
+          <a href="https://discord.gg/ehBxGJ9ta9" class="navbar-item"><i class="fab fa-discord"></i> Discord</a>
+        </div>
+
+        <div class="navbar-end">
+          <a id="ip" class="navbar-item">
+            <input type="text" id="jogar.playnew.site:28254" value="jogar.playnew.site:28254" i class="fas fa-copy"></i> <span>jogar.playnew.site:28254</span>
+            <textarea></textarea>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <article class="article">
+          <h1 class="article-title"><i class="fas fa-gamepad"></i> Sobre o servidor</h1>
+          <div class="article-thumbnail" style="background-image:url(imagem1.jpg)"></div>
+          <div class="article-content">
+            <p><b>PlayNew</b> é um servidor de Minecraft com o foco em sobrevivencia.</p>
+            <p> Aqui contamos com alguns sistemas de Plugins que traz para vocês jogadores uma experiência diferente de um Minecraft Vanilla.</p>
+            <p> Confira abaixo alguns de nossos sistemas:</p>
+            <ul class="list">
+              <li><i class="fa fa-toggle-on"></i> Sistema de skills McMMO</li>
+              <li><i class="fa fa-toggle-on"></i> Sistema de Teleportes</li>
+              <li><i class="fa fa-toggle-on"></i> Economia balanceada</li>
+              <li><i class="fa fa-toggle-on"></i> VIPs possuem vantagens exclusivas</li>
+              <li><i class="fa fa-toggle-on"></i> Eventos diários</li>
+              <li><i class="fa fa-toggle-on"></i> Sistema de mudar skin, mesmo sem Minecraft original</li>
+              <li><i class="fa fa-toggle-on"></i> Lojas</li>
+            </ul>
+            <p> Eai o que está esperando? Venha fazer parte do nosso servidor e se divirta! 😁</p>
+            <p> Clique no botão abaixo e entre no nosso grupo do Discord</p>
+        <div class="has-text-centered" style="margin-top:1rem">
+          <a href="https://discord.com/invite/ehBxGJ9ta9?utm_source=Discord%20Widget&utm_medium=Connect" class="button is-primary">
+            <span class="icon"><i class="fab fa-discord"></i></span>
+            <span>Entre no Discord!</span>
+          </a>
+        </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-4">
+        <article class="article">
+          <h1 id="status" class="article-title"><i class="fas fa-sync is-spinning"></i> Carregando...</h1>
+          <div class="article-content">
+            <b><strong>Jogadores Online: </strong><span data-playercounter-ip="jogar.playnew.site"></span>/100</b>
+          </div>
+        </article>
+        <article class="article">
+          <h1 class="article-title"><i class="fa-solid fa-square-share-nodes"></i> Siga-nos nas rede sociais</h1>
+          <div class="article-content">
+            <p><a href="https://www.tiktok.com/@misterfeliper" class="tiktok" data-lang="pt" data-height="500" data-theme="light"><i class="fa-brands fa-tiktok"></i> TikTok.</a></p>
+            <p><a href="https://www.instagram.com/mrfeliper/" class="instagram" data-lang="pt" data-height="500" data-theme="light"><i class="fa-brands fa-instagram"></i> Instagram.</a></p>
+            <p><a href="https://www.youtube.com/@mrfeliper?themeRefresh=1" class="youtube" data-lang="pt" data-height="500" data-theme="light"><i class="fa-brands fa-youtube"></i> Youtube.</a></p>
+          </div>
+        </article>
+        <article class="article">
+          <h1 class="article-title"><i class="fab fa-discord"></i> Entre na nossa comunidade!</h1>
+          <div class="article-content">
+          <iframe class="discord-widget" src="https://discord.com/widget?id=718587008179634186&theme=dark" width="300" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="section">
+  <div class="container">
+    <article class="footer">
+      <span>&copy; PlayNew <script>document.write(new Date().getFullYear())</script>. Todos os direitos reservados.</span>
+      <a href="https://github.com/maelgamer998" target="_blank" class="is-muted"><i class="fas fa-tools"></i> Desenvolvido por MAEL</a>
+    </article>
+  </div>
+</footer>    
+<script>
+        async function verificarServidor() {
+            const ip = "jogar.playnew.site:28254"; // Altere para o IP do seu servidor
+            const url = `https://api.mcsrvstat.us/2/${ip}`;
+
+            try {
+                const resposta = await fetch(url);
+                const dados = await resposta.json();
+
+                // Verifica se o servidor está online
+                if (dados.online) {
+                    document.getElementById("status").innerHTML = " ✔️ Servidor Online";
+                    document.getElementById("players").innerHTML = `${dados.players.online}/${dados.players.max}`;
+                    document.getElementById("playersOnline").textContent = data.players.online + " jogadores online";
+                    
+                    // Obtém o MOTD formatado corretamente
+                    const motd = dados.motd.clean.join(" "); // Converte array em texto
+                    document.getElementById("motd").innerHTML = motd;
+                } else {
+                    document.getElementById("status").innerHTML = "❌ Servidor Offline";
+                    document.getElementById("players").innerHTML = "❌";
+                    document.getElementById("motd").innerHTML = "❌";
+                    document.getElementById("playersOnline").textContent = "Sem Players Online;
+                }
+            } catch (error) {
+                document.getElementById("status").innerHTML = "--";
+                document.getElementById("players").innerHTML = "--";
+                document.getElementById("motd").innerHTML = "--";
+                document.getElementById("playersOnline").textContent = "🫤 Erro ao carregar";
+                console.error("Erro ao obter status do servidor:", error);
+              
+            }
+        }
+
+        verificarServidor();
+        setInterval(verificarServidor, 100000); // Atualiza a cada 10 segundos
+    </script>
+
+    <script>
+        function copiarTexto() {
+            var inputTexto = document.getElementById("jogar.playnew.site");
+            inputTexto.select();
+            inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+            document.execCommand("copy");
+
+            alert("Texto copiado: " + inputTexto.value);
+        }
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var burger = document.querySelector(".navbar-burger");
+    var menu = document.querySelector(".navbar-menu");
+
+    if (burger && menu) {
+        burger.addEventListener("click", function () {
+            burger.classList.toggle("is-active");
+            menu.classList.toggle("is-active");
+        });
+    }
+});
+</script>
+
+</body>
+
+</html>
